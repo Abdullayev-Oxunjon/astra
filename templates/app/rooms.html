@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+{% load i18n %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href={% static "img/logo.png" %} type="image/x-icon">
+
+    <!-- bootstrap grid css -->
+    <link rel="stylesheet" href="{% static "css/plugins/bootstrap-grid.css" %}">
+    <!-- swiper css -->
+    <link rel="stylesheet" href="{% static "css/plugins/swiper.min.css" %}">
+    <!-- datepicker css -->
+    <link rel="stylesheet" href="{% static "css/plugins/datepicker.css" %}">
+    <!-- aquarelle css -->
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <!-- page name -->
+    <title>Astra Hotel</title>
+</head>
+
+<body>
+<!-- wrapper -->
+<div class="mil-wrapper">
+
+    <!-- preloader -->
+    <div class="mil-loader mil-active">
+        <div class="mil-loader-content">
+            <div class="mil-loader-logo">
+                <img src="{% static "img/logo.png" %}" alt="Logo">
+            </div>
+            <div class="mil-loader-progress">
+                <div class="mil-loader-bar"></div>
+                <div class="mil-loader-percent">0%</div>
+            </div>
+        </div>
+    </div>
+    <!-- preloader end -->
+
+    <!-- top panel -->
+    <div class="mil-top-panel">
+        <div class="container">
+            <div class="mil-top-panel-content">
+                <a href="{% url 'index' %}" class="mil-logo">
+                    <img src="{% static "img/logo.png" %}" alt="aquarelle">
+                </a>
+                <div class="mil-menu-btn">
+                    <span></span>
+                </div>
+
+
+                <div class="mil-mobile-menu">
+                    <nav class="mil-menu">
+                        <ul>
+                            <li class="{% if request.resolver_match.url_name == 'index' %}mil-current{% endif %}">
+                                <a href="{% url 'index' %}">{% trans 'Asosiy' %}</a>
+                            </li>
+                            <li class="{% if request.resolver_match.url_name == 'about' %}mil-current{% endif %}">
+                                <a href="{% url 'about' %}">{% trans 'Biz haqimizda' %}</a>
+                            </li>
+                            <li class="{% if request.resolver_match.url_name == 'services' %}mil-current{% endif %}">
+                                <a href="{% url 'services' %}">{% trans 'Xizmatlar' %}</a>
+                            </li>
+                            <li class="{% if request.resolver_match.url_name == 'rooms' %}mil-current{% endif %}">
+                                <a href="{% url 'rooms' %}">{% trans 'Xonalar' %}</a>
+                            </li>
+                            <li class="{% if request.resolver_match.url_name == 'contact' %}mil-current{% endif %}">
+                                <a href="{% url 'contact' %}">{% trans 'Aloqa' %}</a>
+                            </li>
+                            <li class="{% if request.resolver_match.url_name == 'blog' %}mil-current{% endif %}">
+                                <a href="{% url 'blog' %}">{% trans 'Yangiliklar' %}</a>
+                            </li>
+
+
+                            <li class="menu-item-has-children">
+                                <a href="#">
+                                    {% with current_language=request.LANGUAGE_CODE %}
+                                        {% if current_language == "uz" %}
+                                            <img style="width: 40px" src="{% static 'img/uz.png' %}" alt="">
+                                        {% elif current_language == "en" %}
+                                            <img style="width: 40px" src="{% static 'img/united-kingdom (1).png' %}"
+                                                 alt="">
+                                        {% elif current_language == "ru" %}
+                                            <img style="width: 40px" src="{% static 'img/russia.png' %}" alt="">
+                                        {% endif %}
+                                    {% endwith %}
+                                </a>
+                                <ul>
+
+                                    <li class="mil-current">
+                                        <a href="{% url 'set-language' 'uz' %}">
+                                            <img style="width: 40px" src="{% static 'img/uz.png' %}" alt="">
+                                            Uzbek
+                                        </a>
+                                    </li>
+
+                                    <li class="mil-current">
+                                        <a href="{% url 'set-language' 'en' %}">
+                                            <img style="width: 40px" src="{% static 'img/united-kingdom (1).png' %}"
+                                                 alt="">
+                                            English
+                                        </a>
+                                    </li>
+                                    <li class="mil-current">
+                                        <a href="{% url 'set-language' 'ru' %}">
+                                            <img style="width: 40px" src="{% static 'img/russia.png' %}" alt="">
+                                            Russian
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+
+                        </ul>
+
+
+                    </nav>
+                    <a style="margin-left: 40px" href="#." class="mil-button mil-open-book-popup mil-top-panel-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             class="feather feather-bookmark">
+                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        <span>{% trans 'Hoziroq band qiling' %}</span>
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- top panel end -->
+
+    <!-- banner -->
+    <div class="mil-banner-sm">
+
+        <div class="container">
+            <div class="mil-banner-img-4">
+
+            </div>
+            <div class="row align-items-center justify-content-center">
+                <div class="col-xl-6">
+
+                    <div class="mil-banner-content-frame">
+                        <div class="mil-banner-content mil-text-center">
+                            <h1 class="mil-mb-40"
+                                style="letter-spacing: 0.2px">{% trans "O'zingizning orzuingizdagi xonani tanlang" %}</h1>
+                            <div class="mil-suptitle mil-breadcrumbs">
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li><a href="{% url 'rooms' %}">Search room</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- banner end -->
+
+    <!-- search panel -->
+    <div class="mil-content-pad mil-search-window">
+        <div class="container">
+            <div class="mil-search-panel mil-panel-2">
+                <form>
+                    <div class="mil-form-grid">
+                        <div class="mil-col-5 mil-field-frame">
+                            <label>Check-in</label>
+                            <input type="text" class="datepicker-here" data-position="bottom left"
+                                   placeholder="Select date" autocomplete="off" readonly="readonly">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="feather feather-calendar">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                        </div>
+                        <div class="mil-col-5 mil-field-frame">
+                            <label>Check-out</label>
+                            <input type="text" class="datepicker-here" data-position="bottom left"
+                                   placeholder="Select date" autocomplete="off" readonly="readonly">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="feather feather-calendar">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                        </div>
+                        <div class="mil-col-2 mil-field-frame">
+                            <label>Adults</label>
+                            <input type="text" placeholder="Enter quantity" value="1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="feather feather-users">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <button type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             class="feather feather-search">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <span>Search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- search panel end -->
+
+    <!-- rooms -->
+    <div class="mil-rooms mil-p-100-100">
+
+        <div class="container">
+
+            <div class="row allign-items-center mil-mb-100">
+                <div class="col-xl-4">
+
+                    <h2 class="mil-row-title mil-fade-up">{% trans "Qidiruv natijasi" %}<span
+                            class="mil-badge">24</span></h2>
+
+                </div>
+                <div class="col-xl-8">
+
+                    <div class="mil-desctop-right mil-fade-up">
+                        <div class="mil-filter">
+                            <a href="#." class="mil-active">All</a>
+                            <a href="#.">Economy</a>
+                            <a href="#.">Standard</a>
+                            <a href="#.">Luxe</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row mil-mb-40">
+                {% for room in rooms %}
+                    <div class="col-md-6 col-xl-4">
+
+                        <div class="mil-card mil-mb-40-adapt mil-fade-up">
+                            <div class="swiper-container mil-card-slider">
+                                <div class="swiper-wrapper">
+                                    {% for i in room.images.all %}
+                                        <div class="swiper-slide">
+                                            <div class="mil-card-cover">
+                                                <img src="{{ i.image.url }}" alt="cover"
+                                                     data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="mil-card-nav">
+                                    <div class="mil-slider-btn mil-card-prev">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24"
+                                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                             stroke-linejoin="round" class="feather feather-arrow-right">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="mil-slider-btn mil-card-next">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24"
+                                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                             stroke-linejoin="round" class="feather feather-arrow-right">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="mil-card-pagination"></div>
+                            </div>
+                            <ul class="mil-parameters">
+                                <li>
+                                    <div class="mil-icon">
+                                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path d="M12.7432 5.75582C12.6516 7.02721 11.7084 8.00663 10.6799 8.00663C9.65144 8.00663 8.70673 7.02752 8.6167 5.75582C8.52291 4.43315 9.44106 3.505 10.6799 3.505C11.9188 3.505 12.837 4.45722 12.7432 5.75582Z"
+                                                      stroke="black" stroke-width="1.00189" stroke-linecap="round"
+                                                      stroke-linejoin="round"/>
+                                                <path d="M10.6793 10.0067C8.64232 10.0067 6.68345 11.0185 6.19272 12.9889C6.12771 13.2496 6.29118 13.5075 6.55905 13.5075H14.7999C15.0678 13.5075 15.2303 13.2496 15.1662 12.9889C14.6755 10.9869 12.7166 10.0067 10.6793 10.0067Z"
+                                                      stroke="black" stroke-width="1.00189" stroke-miterlimit="10"/>
+                                                <path d="M6.42937 6.31713C6.3562 7.33276 5.59385 8.13264 4.77209 8.13264C3.95033 8.13264 3.18672 7.33308 3.1148 6.31713C3.04007 5.26053 3.7821 4.50537 4.77209 4.50537C5.76208 4.50537 6.50411 5.27992 6.42937 6.31713Z"
+                                                      stroke="black" stroke-width="1.00189" stroke-linecap="round"
+                                                      stroke-linejoin="round"/>
+                                                <path d="M6.61604 10.0688C6.05177 9.81023 5.4303 9.71082 4.77162 9.71082C3.14604 9.71082 1.57985 10.5189 1.18752 12.0929C1.13594 12.3011 1.26661 12.5071 1.48043 12.5071H4.99045"
+                                                      stroke="black" stroke-width="1.00189" stroke-miterlimit="10"
+                                                      stroke-linecap="round"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath>
+                                                    <rect width="16.0035" height="16.0035" fill="white"
+                                                          transform="translate(0.176514 0.504028)"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                    <div>{% trans "Odamlar soni" %}: {{ room.person }}</div>
+                                </li>
+                                <li>
+                                    <div class="mil-icon">
+                                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10.9578 14.6084H12.7089C13.1733 14.6084 13.6187 14.4239 13.9471 14.0955C14.2755 13.7671 14.46 13.3217 14.46 12.8573V11.1062"
+                                                  stroke="black" stroke-width="1.00189" stroke-linecap="round"
+                                                  stroke-linejoin="round"/>
+                                            <path d="M14.46 6.10644V4.35534C14.46 3.89092 14.2755 3.44553 13.9471 3.11713C13.6187 2.78874 13.1733 2.60425 12.7089 2.60425H10.9578"
+                                                  stroke="black" stroke-width="1.00189" stroke-linecap="round"
+                                                  stroke-linejoin="round"/>
+                                            <path d="M5.95898 14.6084H4.20788C3.74346 14.6084 3.29806 14.4239 2.96967 14.0955C2.64128 13.7671 2.45679 13.3217 2.45679 12.8573V11.1062"
+                                                  stroke="black" stroke-width="1.00189" stroke-linecap="round"
+                                                  stroke-linejoin="round"/>
+                                            <path d="M2.45679 6.10644V4.35534C2.45679 3.89092 2.64128 3.44553 2.96967 3.11713C3.29806 2.78874 3.74346 2.60425 4.20788 2.60425H5.95898"
+                                                  stroke="black" stroke-width="1.00189" stroke-linecap="round"
+                                                  stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+
+                                    <div>{% trans "O'lchami" %}: {{ room.size }}ft²</div>
+
+
+                                </li>
+                            </ul>
+                            <div class="mil-descr">
+                                <h3 class="mil-mb-20">{{ room.title }}</h3>
+                                <p class="mil-mb-40">{{ room.description|slice:":85" }} .....</p>
+                                <div class="mil-divider"></div>
+                                <div class="mil-card-bottom">
+                                    <div class="mil-price"><span class="mil-symbol"></span><span
+                                            class="mil-number">{{ room.price }}</span>/so'm
+                                    </div>
+                                    <a href="{% url 'room' %}" class="mil-button mil-icon-button mil-accent-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24"
+                                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                             stroke-linejoin="round" class="feather feather-bookmark">
+                                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row justify-content-between">
+                <div class="col-lg-7">
+                    <p class="mil-fade-up">{% trans "Shahar yaqinida joylashgan Astra mehmonxonasi zamonaviy qulaylik va abadiy jozibaning uzluksiz uyg‘unligini taqdim etuvchi nafislik mayoqchasi bo‘lib turibdi." %}</p>
+                </div>
+                <div class="col-lg-5">
+                    <div class="mil-desctop-right mil-fade-up">
+
+                        <div class="mil-pagination">
+                            <div class="mil-page-dot">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-arrow-right">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </div>
+                            <div class="mil-page-dot mil-active">1</div>
+                            <div class="mil-page-dot">2</div>
+                            <div class="mil-page-dot">3</div>
+                            <div class="mil-page-dot">4</div>
+                            <div class="mil-page-dot">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-arrow-right">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- rooms end -->
+
+    <!-- call to action -->
+    <div class="mil-content-pad mil-p-100-100 mil-fade-up">
+        <div class="container">
+            <div class="mil-text-center">
+                <div class="mil-suptitle mil-mb-20 mil-fade-up">{% trans "Biz bilan bog'lanish" %}</div>
+
+                <h2 class="mil-h2-lg mil-mb-40 mil-fade-up"
+                    style="letter-spacing: 0.3px">{% trans "Savollaringiz bormi?" %}<br>{% trans "Biz 24/7 ishlaymiz" %}
+                </h2>
+
+                <span class="mil-buttons-frame mil-center mil-fade-up">
+                        <a href="{% url "contact" %}" class="mil-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="feather feather-mail">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <span>{% trans "Bog'lanish" %}</span>
+                        </a>
+                        <a href="#." class="mil-link mil-open-book-popup">
+                            <span>{% trans "Hoziroq band qiling" %}</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="feather feather-arrow-right">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </span>
+            </div>
+        </div>
+    </div>
+    <!-- call to action end -->
+
+    <!-- recommendation -->
+    <div class="mil-rooms mil-p-100-100">
+        <div class="container">
+            <div class="row justify-content-between align-items-end mil-mb-100">
+                <div class="col-lg-7">
+                    <div class="mil-suptitle mil-fade-up mil-mb-20">{% trans "Xush Kelibsiz Do'stim" %}</div>
+                    <h2 class="mil-fade-up">{% trans "Biz tavsiya qilamiz" %}</h2>
+                </div>
+                <div class="col-lg-5">
+                    <div class="mil-desctop-right mil-fade-up">
+
+                        <div class="mil-slider-nav mil-recommendation-nav mil-fade-up">
+                            <div class="mil-slider-arrow mil-prev mil-reco-prev">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-arrow-right">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </div>
+                            <div class="mil-slider-arrow mil-reco-next">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-arrow-right">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-container mil-reco-slider mil-mb-40">
+                <div class="swiper-wrapper">
+                    {% for room in rooms %}
+                        <div class="swiper-slide">
+
+                            <div class="mil-card mil-mb-40-adapt mil-fade-up">
+                                <div class="swiper-container mil-card-slider">
+                                    <div class="swiper-wrapper">
+                                        {% for i in room.images.all %}
+                                            <div class="swiper-slide">
+                                                <div class="mil-card-cover">
+                                                    <img src="{{ i.image.url }}" alt="cover"
+                                                         data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="mil-card-nav">
+                                        <div class="mil-slider-btn mil-card-prev">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                 stroke-linecap="round" stroke-linejoin="round"
+                                                 class="feather feather-arrow-right">
+                                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                <polyline points="12 5 19 12 12 19"></polyline>
+                                            </svg>
+                                        </div>
+                                        <div class="mil-slider-btn mil-card-next">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                 stroke-linecap="round" stroke-linejoin="round"
+                                                 class="feather feather-arrow-right">
+                                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                <polyline points="12 5 19 12 12 19"></polyline>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="mil-card-pagination"></div>
+                                </div>
+                                <ul class="mil-parameters">
+                                    <li>
+                                        <div class="mil-icon">
+                                            <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path d="M12.7432 5.75582C12.6516 7.02721 11.7084 8.00663 10.6799 8.00663C9.65144 8.00663 8.70673 7.02752 8.6167 5.75582C8.52291 4.43315 9.44106 3.505 10.6799 3.505C11.9188 3.505 12.837 4.45722 12.7432 5.75582Z"
+                                                          stroke="black" stroke-width="1.00189" stroke-linecap="round"
+                                                          stroke-linejoin="round"/>
+                                                    <path d="M10.6793 10.0067C8.64232 10.0067 6.68345 11.0185 6.19272 12.9889C6.12771 13.2496 6.29118 13.5075 6.55905 13.5075H14.7999C15.0678 13.5075 15.2303 13.2496 15.1662 12.9889C14.6755 10.9869 12.7166 10.0067 10.6793 10.0067Z"
+                                                          stroke="black" stroke-width="1.00189" stroke-miterlimit="10"/>
+                                                    <path d="M6.42937 6.31713C6.3562 7.33276 5.59385 8.13264 4.77209 8.13264C3.95033 8.13264 3.18672 7.33308 3.1148 6.31713C3.04007 5.26053 3.7821 4.50537 4.77209 4.50537C5.76208 4.50537 6.50411 5.27992 6.42937 6.31713Z"
+                                                          stroke="black" stroke-width="1.00189" stroke-linecap="round"
+                                                          stroke-linejoin="round"/>
+                                                    <path d="M6.61604 10.0688C6.05177 9.81023 5.4303 9.71082 4.77162 9.71082C3.14604 9.71082 1.57985 10.5189 1.18752 12.0929C1.13594 12.3011 1.26661 12.5071 1.48043 12.5071H4.99045"
+                                                          stroke="black" stroke-width="1.00189" stroke-miterlimit="10"
+                                                          stroke-linecap="round"/>
+                                                </g>
+                                                <defs>
+                                                    <clipPath>
+                                                        <rect width="16.0035" height="16.0035" fill="white"
+                                                              transform="translate(0.176514 0.504028)"/>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </div>
+                                        <div>{% trans "Odamlar soni" %}: {{ room.person }}</div>
+                                    </li>
+                                    <li>
+                                        <div class="mil-icon">
+                                            <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M10.9578 14.6084H12.7089C13.1733 14.6084 13.6187 14.4239 13.9471 14.0955C14.2755 13.7671 14.46 13.3217 14.46 12.8573V11.1062"
+                                                      stroke="black" stroke-width="1.00189" stroke-linecap="round"
+                                                      stroke-linejoin="round"/>
+                                                <path d="M14.46 6.10644V4.35534C14.46 3.89092 14.2755 3.44553 13.9471 3.11713C13.6187 2.78874 13.1733 2.60425 12.7089 2.60425H10.9578"
+                                                      stroke="black" stroke-width="1.00189" stroke-linecap="round"
+                                                      stroke-linejoin="round"/>
+                                                <path d="M5.95898 14.6084H4.20788C3.74346 14.6084 3.29806 14.4239 2.96967 14.0955C2.64128 13.7671 2.45679 13.3217 2.45679 12.8573V11.1062"
+                                                      stroke="black" stroke-width="1.00189" stroke-linecap="round"
+                                                      stroke-linejoin="round"/>
+                                                <path d="M2.45679 6.10644V4.35534C2.45679 3.89092 2.64128 3.44553 2.96967 3.11713C3.29806 2.78874 3.74346 2.60425 4.20788 2.60425H5.95898"
+                                                      stroke="black" stroke-width="1.00189" stroke-linecap="round"
+                                                      stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div>{% trans "O'lchami" %}: {{ room.size }}ft²</div>
+
+                                    </li>
+                                </ul>
+                                <div class="mil-descr">
+                                    <h3 class="mil-mb-20">{{ room.title}}</h3>
+                                    <p class="mil-mb-40">{{ room.description|slice:":85" }} .....</p>
+                                    <div class="mil-divider"></div>
+                                    <div class="mil-card-bottom">
+                                        <div class="mil-price"><span class="mil-symbol"></span><span
+                                                class="mil-number">{{ room.price }}</span>/so'm
+                                        </div>
+                                        <a href="{% url 'rooms' %}" class="mil-button mil-icon-button mil-accent-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                 stroke-linecap="round" stroke-linejoin="round"
+                                                 class="feather feather-bookmark">
+                                                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="row justify-content-between">
+                <div class="col-lg-7">
+                    <p class="mil-fade-up">{% trans "Astra mehmonxonasida biz sizning qulayligingizni birinchi o'ringa qo'yamiz.O'zingizni faqat siz uchun moslashtirilgan ajoyib xizmatlar olamiga kiriting." %}</p>
+                </div>
+                <div class="col-lg-5">
+                    <div class="mil-desctop-right mil-fade-up">
+                        <a href="{% url "rooms" %}" class="mil-button">
+                            <span>{% trans "Hammasini Ko'rish" %}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- recommendation end -->
+
+    <!-- footer -->
+
+    <footer>
+        <div class="mil-footer-content mil-fade-up">
+            <div class="container">
+                <div class="mil-divider"></div>
+
+                <div class="row justify-content-between flex-sm-row-reverse mil-p-100-40">
+                    <div class="col-md-7 col-lg-6">
+
+                        <div class="row justify-content-between">
+
+
+                            <div class="col-md-6 col-lg-5 mil-mb-40">
+
+                                <h5 class="mil-mb-20">{% trans "O'zbekiston" %}</h5>
+                                <p>{% trans 'Qashqadaryo viloyati, Qarshi shahri, 3-mitti-tumani' %}</p>
+
+                            </div>
+                            <div class="col-md-4 col-lg-3 mil-mb-40">
+                                <a href="https://growyourbusiness.uz/" target="_blank">
+                                    <img style="width: 120px" src="{% static 'img/webifylogo.png' %}" alt="">
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-4 col-lg-6 mil-mb-60">
+
+                        <div class="mil-mb-20">
+                            <ul class="mil-social-icons">
+                                {% for social_network in social_networks %}
+                                    <li>
+                                        <a href="{{ social_network.link }}" target="_blank" class="social-icon">
+                                            <img style="width: 24px" src="{{ social_network.image.url }}" alt="">
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <p class="mil-light-soft">{% trans '© Mualliflik huquqi 2024. Barcha huquqlar himoyalangan.' %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- footer end -->
+
+    <!-- book popup -->
+    <div class="mil-book-popup-frame">
+        <div class="mil-book-popup">
+            <div class="mil-popup-head mil-mb-40">
+                <h3 class="mil-h3-lg">Search</h3>
+                <div class="mil-close-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-x">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </div>
+            </div>
+            <form>
+                <div class="mil-field-frame mil-mb-20">
+                    <label>Check-in</label>
+                    <input id="check-in-2" type="text" class="datepicker-here" data-position="bottom left"
+                           placeholder="Select date" autocomplete="off" readonly="readonly">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-calendar">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                </div>
+                <div class="mil-field-frame mil-mb-20">
+                    <label>Check-out</label>
+                    <input id="check-out-2" type="text" class="datepicker-here" data-position="bottom left"
+                           placeholder="Select date" autocomplete="off" readonly="readonly">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-calendar">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                </div>
+                <div class="mil-field-frame mil-mb-20">
+                    <label>Adults</label>
+                    <input type="text" placeholder="Enter quantity" value="1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-users">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <button type="submit" class="mil-button mil-accent-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-search">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <span>Search</span>
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- book popup end -->
+
+    <div class="mil-progressbar"></div>
+
+
+</div>
+<!-- wrapper end -->
+
+<!-- jQuery js -->
+<script src="{% static "js/plugins/jquery.min.js" %}"></script>
+<!-- swiper js -->
+<script src="{% static "js/plugins/swiper.min.js" %}"></script>
+<!-- datepicker js -->
+<script src="{% static "js/plugins/datepicker.js" %}"></script>
+<!-- aquarelle js -->
+<script src="{% static "js/main.js" %}"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+{% load i18n %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href={% static "img/logo.png" %} type="image/x-icon">
+
+    <!-- bootstrap grid css -->
+    <link rel="stylesheet" href="{% static "css/plugins/bootstrap-grid.css" %}">
+    <!-- swiper css -->
+    <link rel="stylesheet" href="{% static "css/plugins/swiper.min.css" %}">
+    <!-- datepicker css -->
+    <link rel="stylesheet" href="{% static "css/plugins/datepicker.css" %}">
+    <!-- aquarelle css -->
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <!-- page name -->
+    <title>Astra Hotel</title>
+</head>
+
+<body>
+<!-- wrapper -->
+<div class="mil-wrapper">
+
+    <!-- preloader -->
+    <div class="mil-loader mil-active">
+        <div class="mil-loader-content">
+            <div class="mil-loader-logo">
+                <img src="{% static "img/logo.png" %}" alt="Logo">
+            </div>
+            <div class="mil-loader-progress">
+                <div class="mil-loader-bar"></div>
+                <div class="mil-loader-percent">0%</div>
+            </div>
+        </div>
+    </div>
+    <!-- preloader end -->
+
+    <!-- top panel -->
+    <div class="mil-top-panel">
+        <div class="container">
+            <div class="mil-top-panel-content">
+                <a href="{% url 'index' %}" class="mil-logo">
+                    <img src="{% static "img/logo.png" %}" alt="aquarelle">
+                </a>
+                <div class="mil-menu-btn">
+                    <span></span>
+                </div>
+
+
+                <div class="mil-mobile-menu">
+                    <nav class="mil-menu">
+                        <ul>
+                            <li class="{% if request.resolver_match.url_name == 'index' %}mil-current{% endif %}">
+                                <a href="{% url 'index' %}">{% trans 'Asosiy' %}</a>
+                            </li>
+                            <li class="{% if request.resolver_match.url_name == 'about' %}mil-current{% endif %}">
+                                <a href="{% url 'about' %}">{% trans 'Biz haqimizda' %}</a>
+                            </li>
+                            <li class="{% if request.resolver_match.url_name == 'services' %}mil-current{% endif %}">
+                                <a href="{% url 'services' %}">{% trans 'Xizmatlar' %}</a>
+                            </li>
+                            <li class="{% if request.resolver_match.url_name == 'rooms' %}mil-current{% endif %}">
+                                <a href="{% url 'rooms' %}">{% trans 'Xonalar' %}</a>
+                            </li>
+                            <li class="{% if request.resolver_match.url_name == 'contact' %}mil-current{% endif %}">
+                                <a href="{% url 'contact' %}">{% trans 'Aloqa' %}</a>
+                            </li>
+                            <li class="{% if request.resolver_match.url_name == 'blog' %}mil-current{% endif %}">
+                                <a href="{% url 'blog' %}">{% trans 'Yangiliklar' %}</a>
+                            </li>
+
+
+                            <li class="menu-item-has-children">
+                                <a href="#">
+                                    {% with current_language=request.LANGUAGE_CODE %}
+                                        {% if current_language == "uz" %}
+                                            <img style="width: 40px" src="{% static 'img/uz.png' %}" alt="">
+                                        {% elif current_language == "en" %}
+                                            <img style="width: 40px" src="{% static 'img/united-kingdom (1).png' %}"
+                                                 alt="">
+                                        {% elif current_language == "ru" %}
+                                            <img style="width: 40px" src="{% static 'img/russia.png' %}" alt="">
+                                        {% endif %}
+                                    {% endwith %}
+                                </a>
+                                <ul>
+
+                                    <li class="mil-current">
+                                        <a href="{% url 'set-language' 'uz' %}">
+                                            <img style="width: 40px" src="{% static 'img/uz.png' %}" alt="">
+                                            Uzbek
+                                        </a>
+                                    </li>
+
+                                    <li class="mil-current">
+                                        <a href="{% url 'set-language' 'en' %}">
+                                            <img style="width: 40px" src="{% static 'img/united-kingdom (1).png' %}"
+                                                 alt="">
+                                            English
+                                        </a>
+                                    </li>
+                                    <li class="mil-current">
+                                        <a href="{% url 'set-language' 'ru' %}">
+                                            <img style="width: 40px" src="{% static 'img/russia.png' %}" alt="">
+                                            Russian
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+
+                        </ul>
+
+
+                    </nav>
+                    <a style="margin-left: 40px" href="#." class="mil-button mil-open-book-popup mil-top-panel-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             class="feather feather-bookmark">
+                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        <span>{% trans 'Hoziroq band qiling' %}</span>
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- top panel end -->
+
+    <!-- banner -->
+    <div class="mil-banner-sm">
+
+        <div class="container">
+            <div class="mil-banner-img-4">
+
+            </div>
+            <div class="row align-items-center justify-content-center">
+                <div class="col-xl-6">
+
+                    <div class="mil-banner-content-frame">
+                        <div class="mil-banner-content mil-text-center">
+                            <h1 class="mil-mb-40">{% trans "Biz bilan bog'lanish" %}</h1>
+                            <div class="mil-suptitle mil-breadcrumbs">
+                                <ul>
+                                    <li><a href="/">{% trans "Asosiy" %}</a></li>
+                                    <li><a href="{% url 'contact' %}">{% trans "Aloqa" %}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- banner end -->
+
+    <!-- contact form -->
+    <div class="mil-content-pad mil-p-100-100">
+        <div class="container">
+            <form>
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="mil-field-frame mil-mb-20">
+                            <label>{% trans 'Ism' %}</label>
+                            <input type="text" placeholder="{% trans "Ismingizni kiriting" %}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="feather feather-user">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="mil-field-frame mil-mb-20">
+                            <label>{% trans 'Telefon raqam' %}</label>
+                            <input type="email" placeholder="{% trans "Telefon raqamingizni kiriting" %}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="feather feather-mail">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="col-xl-12">
+                        <div class="mil-field-frame mil-mb-20">
+                            <label>{% trans 'Xabar' %}</label>
+                            <textarea type="text" placeholder="{% trans 'Bizga xabar yozing' %}"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <p class="mil-fade-up"><span
+                                class="mil-accent-2">*</span>{% trans "Shaxsiy ma'lumotlaringizni uchinchi shaxslarga oshkor qilmaslikka va'da beramiz." %}
+                        </p>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="mil-desctop-right mil-fade-up">
+                            <button type="submit" class="mil-button">
+                                <span>{% trans "Yuborish" %}</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- contact form end -->
+
+    <!-- contact info -->
+    <div class="mil-contact mil-p-100-60">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4">
+                    <div class="mil-iconbox mil-mb-40-adapt mil-fade-up">
+                        <div class="mil-bg-icon"></div>
+                        <div class="mil-icon mil-icon-fix">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="feather feather-phone-call">
+                                <path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="mil-mb-20">+ 998 (55) 401 01 01</h3>
+                        <p>{% trans "Bizga istalgan vaqtda qo'ng'iroq qiling. Biz 24/7 ishlaymiz" %}</p>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="mil-iconbox mil-mb-40-adapt mil-fade-up">
+                        <div class="mil-bg-icon"></div>
+                        <div class="mil-icon mil-icon-fix">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="feather feather-mail">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="mil-mb-20">astra.hotel@gmail.com</h3>
+                        <p>{% trans "Bizga yozing. Bizning xodimlarimiz sizga tezda javob berishadi" %}</p>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="mil-iconbox mil-mb-40-adapt mil-fade-up">
+                        <div class="mil-bg-icon"></div>
+                        <div class="mil-icon mil-icon-fix">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="feather feather-map-pin">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <h3 class="mil-mb-20">{% trans 'Qashqadaryo viloyati, Qarshi shahri, 3-mitti-tumani' %}</h3>
+                        <p>{% trans "Sizni bizga tashrif buyurishga taklif qilamiz" %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact info end -->
+
+    <!-- map -->
+    <div class="mil-p-0-100">
+        <div class="container">
+            <div class="mil-map-frame mil-fade-up">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9856.28335847757!2d-3.7356696923005295!3d36.72430199961263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7187e1f7c4b7e7%3A0x9ab7e6940ad5f587!2sPlaya%20Marina%20del%20Este!5e0!3m2!1suk!2sua!4v1701773054642!5m2!1suk!2sua"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- map end -->
+
+    <!-- footer -->
+
+    <footer>
+        <div class="mil-footer-content mil-fade-up">
+            <div class="container">
+                <div class="mil-divider"></div>
+
+                <div class="row justify-content-between flex-sm-row-reverse mil-p-100-40">
+                    <div class="col-md-7 col-lg-6">
+
+                        <div class="row justify-content-between">
+
+
+                            <div class="col-md-6 col-lg-5 mil-mb-40">
+
+                                <h5 class="mil-mb-20">{% trans "O'zbekiston" %}</h5>
+                                <p>{% trans 'Qashqadaryo viloyati, Qarshi shahri, 3-mitti-tumani' %}</p>
+
+                            </div>
+                            <div class="col-md-4 col-lg-3 mil-mb-40">
+                                <a href="https://growyourbusiness.uz/" target="_blank">
+                                    <img style="width: 120px" src="{% static 'img/webifylogo.png' %}" alt="">
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-4 col-lg-6 mil-mb-60">
+
+                        <div class="mil-mb-20">
+                            <ul class="mil-social-icons">
+                                {% for social_network in social_networks %}
+                                    <li>
+                                        <a href="{{ social_network.link }}" target="_blank" class="social-icon">
+                                            <img style="width: 24px" src="{{ social_network.image.url }}" alt="">
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <p class="mil-light-soft">{% trans '© Mualliflik huquqi 2024. Barcha huquqlar himoyalangan.' %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- footer end -->
+
+    <!-- book popup -->
+    <div class="mil-book-popup-frame">
+        <div class="mil-book-popup">
+            <div class="mil-popup-head mil-mb-40">
+                <h3 class="mil-h3-lg">Search</h3>
+                <div class="mil-close-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-x">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </div>
+            </div>
+            <form>
+                <div class="mil-field-frame mil-mb-20">
+                    <label>Check-in</label>
+                    <input id="check-in-2" type="text" class="datepicker-here" data-position="bottom left"
+                           placeholder="Select date" autocomplete="off" readonly="readonly">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-calendar">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                </div>
+                <div class="mil-field-frame mil-mb-20">
+                    <label>Check-out</label>
+                    <input id="check-out-2" type="text" class="datepicker-here" data-position="bottom left"
+                           placeholder="Select date" autocomplete="off" readonly="readonly">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-calendar">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                </div>
+                <div class="mil-field-frame mil-mb-20">
+                    <label>Adults</label>
+                    <input type="text" placeholder="Enter quantity" value="1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-users">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <button type="submit" class="mil-button mil-accent-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-search">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <span>Search</span>
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- book popup end -->
+
+    <div class="mil-progressbar"></div>
+
+
+</div>
+<!-- wrapper end -->
+
+<!-- jQuery js -->
+<script src="{% static "js/plugins/jquery.min.js" %}"></script>
+<!-- smooth scroll js -->
+<script src="{% static "js/plugins/smooth-scroll.js" %}"></script>
+<!-- swiper js -->
+<script src="{% static "js/plugins/swiper.min.js" %}"></script>
+<!-- datepicker js -->
+<script src="{% static "js/plugins/datepicker.js" %}"></script>
+<!-- aquarelle js -->
+<script src="{% static "js/main.js" %}"></script>
+</body>
+
+
+</html>

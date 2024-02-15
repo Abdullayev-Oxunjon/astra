@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+{% load i18n %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href={% static "img/logo.png" %} type="image/x-icon">
+
+    <!-- bootstrap grid css -->
+    <link rel="stylesheet" href="{% static "css/plugins/bootstrap-grid.css" %}">
+    <!-- swiper css -->
+    <link rel="stylesheet" href="{% static "css/plugins/swiper.min.css" %}">
+    <!-- datepicker css -->
+    <link rel="stylesheet" href="{% static "css/plugins/datepicker.css" %}">
+    <!-- aquarelle css -->
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <!-- page name -->
+    <title>Astra Hotel</title>
+</head>
+
+<body>
+<!-- wrapper -->
+<div class="mil-wrapper">
+
+    <!-- preloader -->
+    <div class="mil-loader mil-active">
+        <div class="mil-loader-content">
+            <div class="mil-loader-logo">
+                <img src="{% static "img/logo.png" %}" alt="Logo">
+            </div>
+            <div class="mil-loader-progress">
+                <div class="mil-loader-bar"></div>
+                <div class="mil-loader-percent">0%</div>
+            </div>
+        </div>
+    </div>
+    <!-- preloader end -->
+
+    <!-- top panel -->
+    <div class="mil-top-panel">
+        <div class="container">
+            <div class="mil-top-panel-content">
+                <a href="{% url 'index' %}" class="mil-logo">
+                    <img src="{% static "img/logo.png" %}" alt="aquarelle">
+                </a>
+                <div class="mil-menu-btn">
+                    <span></span>
+                </div>
+
+
+                <div class="mil-mobile-menu">
+                    <nav class="mil-menu">
+                        <ul>
+                            <li class="{% if request.resolver_match.url_name == 'index' %}mil-current{% endif %}">
+                                <a href="{% url 'index' %}">{% trans 'Asosiy' %}</a>
+                            </li>
+                            <li class="{% if request.resolver_match.url_name == 'about' %}mil-current{% endif %}">
+                                <a href="{% url 'about' %}">{% trans 'Biz haqimizda' %}</a>
+                            </li>
+                            <li class="{% if request.resolver_match.url_name == 'services' %}mil-current{% endif %}">
+                                <a href="{% url 'services' %}">{% trans 'Xizmatlar' %}</a>
+                            </li>
+                            <li class="{% if request.resolver_match.url_name == 'rooms' %}mil-current{% endif %}">
+                                <a href="{% url 'rooms' %}">{% trans 'Xonalar' %}</a>
+                            </li>
+                            <li class="{% if request.resolver_match.url_name == 'contact' %}mil-current{% endif %}">
+                                <a href="{% url 'contact' %}">{% trans 'Aloqa' %}</a>
+                            </li>
+                            <li class="{% if request.resolver_match.url_name == 'blog' %}mil-current{% endif %}">
+                                <a href="{% url 'blog' %}">{% trans 'Yangiliklar' %}</a>
+                            </li>
+
+
+                            <li class="menu-item-has-children">
+                                <a href="#">
+                                    {% with current_language=request.LANGUAGE_CODE %}
+                                        {% if current_language == "uz" %}
+                                            <img style="width: 40px" src="{% static 'img/uz.png' %}" alt="">
+                                        {% elif current_language == "en" %}
+                                            <img style="width: 40px" src="{% static 'img/united-kingdom (1).png' %}"
+                                                 alt="">
+                                        {% elif current_language == "ru" %}
+                                            <img style="width: 40px" src="{% static 'img/russia.png' %}" alt="">
+                                        {% endif %}
+                                    {% endwith %}
+                                </a>
+                                <ul>
+
+                                    <li class="mil-current">
+                                        <a href="{% url 'set-language' 'uz' %}">
+                                            <img style="width: 40px" src="{% static 'img/uz.png' %}" alt="">
+                                            Uzbek
+                                        </a>
+                                    </li>
+
+                                    <li class="mil-current">
+                                        <a href="{% url 'set-language' 'en' %}">
+                                            <img style="width: 40px" src="{% static 'img/united-kingdom (1).png' %}"
+                                                 alt="">
+                                            English
+                                        </a>
+                                    </li>
+                                    <li class="mil-current">
+                                        <a href="{% url 'set-language' 'ru' %}">
+                                            <img style="width: 40px" src="{% static 'img/russia.png' %}" alt="">
+                                            Russian
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+
+                        </ul>
+
+
+                    </nav>
+                    <a style="margin-left: 40px" href="#." class="mil-button mil-open-book-popup mil-top-panel-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             class="feather feather-bookmark">
+                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        <span>{% trans 'Hoziroq band qiling' %}</span>
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- top panel end -->
+
+    <!-- banner -->
+    <div class="mil-banner-sm">
+
+        <div class="container">
+            <div class="mil-banner-img-4">
+
+            </div>
+            <div class="row align-items-center justify-content-center">
+                <div class="col-xl-8">
+
+                    <div class="mil-banner-content-frame">
+                        <div class="mil-banner-content mil-text-center">
+                            <h1 class="mil-mb-40">The Ultimate Guide to Traveling When You Have No Money</h1>
+                            <div class="mil-suptitle mil-breadcrumbs">
+                                <ul>
+                                    <li><a href="home-1.html">Home</a></li>
+                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="publication.html">Publication</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- banner end -->
+
+    <!-- publication -->
+    <div class="mil-pub-frame">
+        <div class="mil-pub-cover">
+            <img src="{% static "img/autoastra.jpg" %}" alt="cover">
+        </div>
+
+        <div class="container mil-p-100-100">
+            <div class="row justify-content-center">
+                <div class="col-xl-7">
+                    <p class="mil-mb-20 mil-fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Felis donec et odio pellentesque.
+                        Nisi est sit amet facilisis magna. Semper feugiat nibh sed pulvinar. Id leo in vitae turpis
+                        massa sed elementum tempus. Eget est lorem ipsum dolor. Bibendum enim facilisis gravida neque.
+                        Nibh ipsum consequat nisl vel. Luctus venenatis lectus magna fringilla urna porttitor rhoncus
+                        dolor. Fermentum dui faucibus in ornare quam viverra. Mi quis hendrerit dolor magna eget est.
+                        Nunc faucibus a pellentesque sit amet. Donec pretium vulputate sapien nec sagittis aliquam.
+                        Ullamcorper sit amet risus nullam eget. Nulla aliquet porttitor lacus luctus accumsan
+                        tortor.</p>
+
+                    <p class="mil-mb-20 mil-fade-up">Vestibulum lectus mauris ultrices eros. Pharetra massa massa
+                        ultricies mi quis hendrerit dolor magna eget. Sit amet nisl purus in mollis nunc sed. Aenean
+                        euismod elementum nisi quis eleifend.</p>
+
+                    <p class="mil-mb-40 mil-fade-up">Pulvinar neque laoreet suspendisse interdum consectetur libero.
+                        Urna id volutpat lacus laoreet non curabitur gravida arcu ac. Varius morbi enim nunc faucibus.
+                        Ornare suspendisse sed nisi lacus sed viverra tellus in. Massa tincidunt dui ut ornare lectus
+                        sit amet. Suspendisse sed nisi lacus sed viverra tellus in. Dapibus ultrices in iaculis nunc sed
+                        augue lacus viverra. Velit dignissim sodales ut eu sem integer vitae. At elementum eu facilisis
+                        sed odio. Vulputate dignissim suspendisse in est ante in nibh. Ante in nibh mauris cursus mattis
+                        molestie a iaculis. Augue neque gravida in fermentum et sollicitudin ac. Pellentesque elit eget
+                        gravida cum sociis. In fermentum et sollicitudin ac. Leo integer malesuada nunc vel risus
+                        commodo viverra maecenas.</p>
+                    <div class="mil-img mil-img-hori mil-mb-40 mil-fade-up">
+                        <img src="{% static "img/services/1.jpg" %}" alt="img">
+                    </div>
+                    <p class="mil-mb-20 mil-fade-up">Et netus et malesuada fames ac turpis egestas integer eget. Etiam
+                        erat velit scelerisque in dictum non consectetur a. Orci phasellus egestas tellus rutrum tellus
+                        pellentesque. Amet massa vitae tortor condimentum lacinia quis vel eros donec.</p>
+                    <p class="mil-mb-40 mil-fade-up">Morbi tincidunt ornare massa eget egestas purus viverra accumsan
+                        in. Eget lorem dolor sed viverra ipsum nunc aliquet. Enim blandit volutpat maecenas volutpat
+                        blandit aliquam etiam. Nunc non blandit massa enim nec dui nunc. Enim neque volutpat ac
+                        tincidunt vitae semper quis lectus nulla. Fermentum dui faucibus in ornare quam viverra. Porta
+                        nibh venenatis cras sed felis eget. Id faucibus nisl tincidunt eget nullam non. Venenatis a
+                        condimentum vitae sapien. At volutpat diam ut venenatis tellus in metus vulputate. Ullamcorper
+                        morbi tincidunt ornare massa eget egestas. Mi in nulla posuere sollicitudin aliquam ultrices
+                        sagittis orci a. Eget nullam non nisi est. Ornare arcu odio ut sem. Vitae auctor eu augue ut
+                        lectus arcu bibendum. Aliquet nibh praesent tristique magna sit amet purus gravida quis.</p>
+
+                    <blockquote class="mil-mb-40 mil-fade-up">Et netus et malesuada fames ac turpis egestas integer
+                        eget. Etiam erat velit scelerisque in dictum non consectetur a. Orci phasellus egestas tellus
+                        rutrum tellus pellentesque. Amet massa vitae tortor condimentum lacinia quis vel eros donec.
+                    </blockquote>
+
+                    <p class="mil-mb-100 mil-fade-up">Aliquet porttitor lacus luctus accumsan tortor posuere ac. Nunc
+                        consequat interdum varius sit amet. Massa tincidunt dui ut ornare lectus sit amet est placerat.
+                        Suscipit adipiscing bibendum est ultricies integer quis. Diam sit amet nisl suscipit. Amet
+                        cursus sit ado sed egestas egestas fringilla phasellus faucibus scelerisque. Volutpat lacus
+                        laoreet non curabitur gravida arcu. Non curabitur gravida arcu ac tortor dignissim convallis
+                        aenean.</p>
+                    <div class="mil-divider mil-mb-100"></div>
+                    <h2 class="mil-row-title mil-fade-up mil-mb-100">Comments <span class="mil-badge">5</span></h2>
+                    <ul class="mil-comments mil-mb-100">
+                        <li class="mil-comment mil-mb-40">
+                            <div class="mil-comment-head mil-fade-up">
+                                <div class="mil-author">
+                                    <div class="mil-avatar">
+                                        <img src="{% static "img/faces/1.jpg" %}" alt="portrait">
+                                    </div>
+                                    <div>
+                                        <h5>Isla Davis</h5>
+                                        <p class="mil-text-sm">30 May, 2022</p>
+                                    </div>
+                                </div>
+                                <div class="mil-reply">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                         stroke-linejoin="round" class="feather feather-corner-up-left">
+                                        <polyline points="9 14 4 9 9 4"></polyline>
+                                        <path d="M20 20v-7a4 4 0 0 0-4-4H4"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="mil-fade-up">Lorem Ipsum is simply dummy text of the printing and typesetting
+                                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                when an unknown printer took a galley of type and scrambled.</p>
+
+                            <ul>
+                                <li class="mil-comment mil-mb-40">
+                                    <div class="mil-comment-head mil-fade-up">
+                                        <div class="mil-author">
+                                            <div class="mil-avatar">
+                                                <img src="{% static "img/faces/2.jpg" %}" alt="portrait">
+                                            </div>
+                                            <div>
+                                                <h5>David Anderson</h5>
+                                                <p class="mil-text-sm">30 May, 2022</p>
+                                            </div>
+                                        </div>
+                                        <div class="mil-reply">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                 stroke-linecap="round" stroke-linejoin="round"
+                                                 class="feather feather-corner-up-left">
+                                                <polyline points="9 14 4 9 9 4"></polyline>
+                                                <path d="M20 20v-7a4 4 0 0 0-4-4H4"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <p class="mil-fade-up">Lorem Ipsum is simply dummy text of the printing and
+                                        typesetting industry. Lorem Ipsum has been the industry's standard dummy text
+                                        ever since the 1500s, when an unknown printer took a galley of type and
+                                        scrambled.</p>
+                                </li>
+                                <li class="mil-comment mil-mb-40">
+                                    <div class="mil-comment-head mil-fade-up">
+                                        <div class="mil-author">
+                                            <div class="mil-avatar">
+                                                <img src="{% static "img/faces/3.jpg" %}" alt="portrait">
+                                            </div>
+                                            <div>
+                                                <h5>Harry Wilson</h5>
+                                                <p class="mil-text-sm">30 May, 2022</p>
+                                            </div>
+                                        </div>
+                                        <div class="mil-reply">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                 stroke-linecap="round" stroke-linejoin="round"
+                                                 class="feather feather-corner-up-left">
+                                                <polyline points="9 14 4 9 9 4"></polyline>
+                                                <path d="M20 20v-7a4 4 0 0 0-4-4H4"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <p class="mil-fade-up">Lorem Ipsum is simply dummy text of the printing and
+                                        typesetting industry. Lorem Ipsum has been the industry's standard dummy text
+                                        ever since the 1500s, when an unknown printer took a galley of type and
+                                        scrambled.</p>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="mil-comment mil-mb-40">
+                            <div class="mil-comment-head mil-fade-up">
+                                <div class="mil-author">
+                                    <div class="mil-avatar">
+                                        <img src="{% static "img/faces/4.jpg" %}" alt="portrait">
+                                    </div>
+                                    <div>
+                                        <h5>Oscar Gagnon</h5>
+                                        <p class="mil-text-sm">30 May, 2022</p>
+                                    </div>
+                                </div>
+                                <div class="mil-reply">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                         stroke-linejoin="round" class="feather feather-corner-up-left">
+                                        <polyline points="9 14 4 9 9 4"></polyline>
+                                        <path d="M20 20v-7a4 4 0 0 0-4-4H4"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="mil-fade-up">Lorem Ipsum is simply dummy text of the printing and typesetting
+                                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                when an unknown printer took a galley of type and scrambled.</p>
+                        </li>
+                        <li class="mil-comment mil-mb-40">
+                            <div class="mil-comment-head mil-fade-up">
+                                <div class="mil-author">
+                                    <div class="mil-avatar">
+                                        <img src="{% static "img/faces/5.jpg" %}" alt="portrait">
+                                    </div>
+                                    <div>
+                                        <h5>Harry Wilson</h5>
+                                        <p class="mil-text-sm">30 May, 2022</p>
+                                    </div>
+                                </div>
+                                <div class="mil-reply">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                         stroke-linejoin="round" class="feather feather-corner-up-left">
+                                        <polyline points="9 14 4 9 9 4"></polyline>
+                                        <path d="M20 20v-7a4 4 0 0 0-4-4H4"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="mil-fade-up">Lorem Ipsum is simply dummy text of the printing and typesetting
+                                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                when an unknown printer took a galley of type and scrambled.</p>
+                        </li>
+                    </ul>
+                    <div class="mil-divider mil-mb-40"></div>
+                    <a href="#." class="mil-button mil-accent-1 mil-reply">
+                        <span>Post a comment</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- publication end -->
+
+    <!-- recommendation -->
+    <div class="mil-rooms mil-p-100-100">
+        <div class="container">
+            <div class="row justify-content-between align-items-end mil-mb-100">
+                <div class="col-lg-7">
+                    <div class="mil-suptitle mil-fade-up mil-mb-20">Publications</div>
+                    <h2 class="mil-fade-up">Recommended for reading</h2>
+                </div>
+                <div class="col-lg-5">
+                    <div class="mil-desctop-right mil-fade-up">
+
+                        <div class="mil-slider-nav mil-recommendation-nav mil-fade-up">
+                            <div class="mil-slider-arrow mil-prev mil-reco-prev">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-arrow-right">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </div>
+                            <div class="mil-slider-arrow mil-reco-next">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-arrow-right">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-container mil-reco-slider mil-mb-40">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+
+                        <a href="publication.html" class="mil-card mil-mb-40-adapt mil-fade-up">
+                            <div class="swiper-container mil-card-slider">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="mil-card-cover">
+                                            <img src="{% static "img/blog/9.jpg" %}" alt="cover"
+                                                 data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mil-card-nav">
+                                    <div class="mil-slider-btn mil-card-prev">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
+                                             class="feather feather-arrow-right">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="mil-slider-btn mil-card-next">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
+                                             class="feather feather-arrow-right">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="mil-card-pagination"></div>
+                            </div>
+                            <ul class="mil-parameters">
+                                <li>
+                                    <div class="mil-icon">
+                                        <img src="{% static "img/faces/6.jpg" %}" alt="author">
+                                    </div>
+                                    <div>Paul T.</div>
+                                </li>
+                                <li>
+                                    <div class="mil-icon">
+                                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M13.1881 2.62402H3.18597C2.35736 2.62402 1.68564 3.29574 1.68564 4.12435V13.1263C1.68564 13.9549 2.35736 14.6266 3.18597 14.6266H13.1881C14.0168 14.6266 14.6885 13.9549 14.6885 13.1263V4.12435C14.6885 3.29574 14.0168 2.62402 13.1881 2.62402Z"
+                                                  stroke="#272746" stroke-width="1.00189" stroke-linejoin="round"/>
+                                            <path d="M4.18536 1.62305V2.63226" stroke="#272746" stroke-width="1.00189"
+                                                  stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M12.188 1.62305V2.63226" stroke="#272746" stroke-width="1.00189"
+                                                  stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M14.6885 5.12402H1.68564" stroke="#272746" stroke-width="1.00189"
+                                                  stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div>29.08.2024</div>
+                                </li>
+                            </ul>
+                            <div class="mil-descr">
+                                <h3 class="mil-mb-20">10 easy steps and tips for planning your next vacation</h3>
+                                <p class="mil-mb-20">Accusantium doloremque laudantium, totam rem aperiam beatae vitae
+                                    dicta sunt, explicabo</p>
+                                <div class="mil-divider"></div>
+                                <div class="mil-card-bottom">
+                                    <div class="mil-link">
+                                        <span>Read more</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
+                                             class="feather feather-arrow-right">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                    <div class="swiper-slide">
+
+                        <a href="publication.html" class="mil-card mil-mb-40-adapt mil-fade-up">
+                            <div class="swiper-container mil-card-slider">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="mil-card-cover">
+                                            <img src="{% static "img/blog/12.jpg" %}" alt="cover"
+                                                 data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mil-card-nav">
+                                    <div class="mil-slider-btn mil-card-prev">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
+                                             class="feather feather-arrow-right">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="mil-slider-btn mil-card-next">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
+                                             class="feather feather-arrow-right">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="mil-card-pagination"></div>
+                            </div>
+                            <ul class="mil-parameters">
+                                <li>
+                                    <div class="mil-icon">
+                                        <img src="{% static "img/faces/6.jpg" %}" alt="author">
+                                    </div>
+                                    <div>Paul T.</div>
+                                </li>
+                                <li>
+                                    <div class="mil-icon">
+                                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M13.1881 2.62402H3.18597C2.35736 2.62402 1.68564 3.29574 1.68564 4.12435V13.1263C1.68564 13.9549 2.35736 14.6266 3.18597 14.6266H13.1881C14.0168 14.6266 14.6885 13.9549 14.6885 13.1263V4.12435C14.6885 3.29574 14.0168 2.62402 13.1881 2.62402Z"
+                                                  stroke="#272746" stroke-width="1.00189" stroke-linejoin="round"/>
+                                            <path d="M4.18536 1.62305V2.63226" stroke="#272746" stroke-width="1.00189"
+                                                  stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M12.188 1.62305V2.63226" stroke="#272746" stroke-width="1.00189"
+                                                  stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M14.6885 5.12402H1.68564" stroke="#272746" stroke-width="1.00189"
+                                                  stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div>29.08.2024</div>
+                                </li>
+                            </ul>
+                            <div class="mil-descr">
+                                <h3 class="mil-mb-20">Ultimate Guide to Traveling When You Have No Money</h3>
+                                <p class="mil-mb-20">Accusantium doloremque laudantium, totam rem aperiam beatae vitae
+                                    dicta sunt, explicabo</p>
+                                <div class="mil-divider"></div>
+                                <div class="mil-card-bottom">
+                                    <div class="mil-link">
+                                        <span>Read more</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
+                                             class="feather feather-arrow-right">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                    <div class="swiper-slide">
+
+                        <a href="publication.html" class="mil-card mil-mb-40-adapt mil-fade-up">
+                            <div class="swiper-container mil-card-slider">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="mil-card-cover">
+                                            <img src="{% static "img/blog/11.jpg" %}" alt="cover"
+                                                 data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mil-card-nav">
+                                    <div class="mil-slider-btn mil-card-prev">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
+                                             class="feather feather-arrow-right">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="mil-slider-btn mil-card-next">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
+                                             class="feather feather-arrow-right">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="mil-card-pagination"></div>
+                            </div>
+                            <ul class="mil-parameters">
+                                <li>
+                                    <div class="mil-icon">
+                                        <img src="{% static "img/faces/6.jpg" %}" alt="author">
+                                    </div>
+                                    <div>Paul T.</div>
+                                </li>
+                                <li>
+                                    <div class="mil-icon">
+                                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M13.1881 2.62402H3.18597C2.35736 2.62402 1.68564 3.29574 1.68564 4.12435V13.1263C1.68564 13.9549 2.35736 14.6266 3.18597 14.6266H13.1881C14.0168 14.6266 14.6885 13.9549 14.6885 13.1263V4.12435C14.6885 3.29574 14.0168 2.62402 13.1881 2.62402Z"
+                                                  stroke="#272746" stroke-width="1.00189" stroke-linejoin="round"/>
+                                            <path d="M4.18536 1.62305V2.63226" stroke="#272746" stroke-width="1.00189"
+                                                  stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M12.188 1.62305V2.63226" stroke="#272746" stroke-width="1.00189"
+                                                  stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M14.6885 5.12402H1.68564" stroke="#272746" stroke-width="1.00189"
+                                                  stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div>29.08.2024</div>
+                                </li>
+                            </ul>
+                            <div class="mil-descr">
+                                <h3 class="mil-mb-20">10 easy steps and tips for planning your next vacation</h3>
+                                <p class="mil-mb-20">Accusantium doloremque laudantium, totam rem aperiam beatae vitae
+                                    dicta sunt, explicabo</p>
+                                <div class="mil-divider"></div>
+                                <div class="mil-card-bottom">
+                                    <div class="mil-link">
+                                        <span>Read more</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
+                                             class="feather feather-arrow-right">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                    <div class="swiper-slide">
+
+                        <a href="publication.html" class="mil-card mil-mb-40-adapt mil-fade-up">
+                            <div class="swiper-container mil-card-slider">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="mil-card-cover">
+                                            <img src="{% static "img/blog/10.jpg" %}" alt="cover"
+                                                 data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mil-card-nav">
+                                    <div class="mil-slider-btn mil-card-prev">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
+                                             class="feather feather-arrow-right">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="mil-slider-btn mil-card-next">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
+                                             class="feather feather-arrow-right">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="mil-card-pagination"></div>
+                            </div>
+                            <ul class="mil-parameters">
+                                <li>
+                                    <div class="mil-icon">
+                                        <img src="{% static "img/faces/6.jpg" %}" alt="author">
+                                    </div>
+                                    <div>Paul T.</div>
+                                </li>
+                                <li>
+                                    <div class="mil-icon">
+                                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M13.1881 2.62402H3.18597C2.35736 2.62402 1.68564 3.29574 1.68564 4.12435V13.1263C1.68564 13.9549 2.35736 14.6266 3.18597 14.6266H13.1881C14.0168 14.6266 14.6885 13.9549 14.6885 13.1263V4.12435C14.6885 3.29574 14.0168 2.62402 13.1881 2.62402Z"
+                                                  stroke="#272746" stroke-width="1.00189" stroke-linejoin="round"/>
+                                            <path d="M4.18536 1.62305V2.63226" stroke="#272746" stroke-width="1.00189"
+                                                  stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M12.188 1.62305V2.63226" stroke="#272746" stroke-width="1.00189"
+                                                  stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M14.6885 5.12402H1.68564" stroke="#272746" stroke-width="1.00189"
+                                                  stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div>29.08.2024</div>
+                                </li>
+                            </ul>
+                            <div class="mil-descr">
+                                <h3 class="mil-mb-20">10 easy steps and tips for planning your next vacation</h3>
+                                <p class="mil-mb-20">Accusantium doloremque laudantium, totam rem aperiam beatae vitae
+                                    dicta sunt, explicabo</p>
+                                <div class="mil-divider"></div>
+                                <div class="mil-card-bottom">
+                                    <div class="mil-link">
+                                        <span>Read more</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
+                                             class="feather feather-arrow-right">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-between">
+                <div class="col-lg-7">
+                    <p class="mil-fade-up">Accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo
+                        inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo.</p>
+                </div>
+                <div class="col-lg-5">
+                    <div class="mil-desctop-right mil-fade-up">
+                        <a href="search.html" class="mil-button">
+                            <span>View all</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- recommendation end -->
+
+    <!-- footer -->
+
+    <footer>
+        <div class="mil-footer-content mil-fade-up">
+            <div class="container">
+                <div class="mil-divider"></div>
+
+                <div class="row justify-content-between flex-sm-row-reverse mil-p-100-40">
+                    <div class="col-md-7 col-lg-6">
+
+                        <div class="row justify-content-between">
+
+
+                            <div class="col-md-6 col-lg-5 mil-mb-40">
+
+                                <h5 class="mil-mb-20">{% trans "O'zbekiston" %}</h5>
+                                <p>{% trans 'Qashqadaryo viloyati, Qarshi shahri, 3-mitti-tumani' %}</p>
+
+                            </div>
+                            <div class="col-md-4 col-lg-3 mil-mb-40">
+                                <a href="https://growyourbusiness.uz/" target="_blank">
+                                    <img style="width: 120px" src="{% static 'img/webifylogo.png' %}" alt="">
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-4 col-lg-6 mil-mb-60">
+
+                        <div class="mil-mb-20">
+                            <ul class="mil-social-icons">
+                                {% for social_network in social_networks %}
+                                    <li>
+                                        <a href="{{ social_network.link }}" target="_blank" class="social-icon">
+                                            <img style="width: 24px" src="{{ social_network.image.url }}" alt="">
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <p class="mil-light-soft">{% trans '© Mualliflik huquqi 2024. Barcha huquqlar himoyalangan.' %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- footer end -->
+
+    <!-- book popup -->
+    <div class="mil-book-popup-frame">
+        <div class="mil-book-popup">
+            <div class="mil-popup-head mil-mb-40">
+                <h3 class="mil-h3-lg">Search</h3>
+                <div class="mil-close-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-x">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </div>
+            </div>
+            <form>
+                <div class="mil-field-frame mil-mb-20">
+                    <label>Check-in</label>
+                    <input id="check-in-2" type="text" class="datepicker-here" data-position="bottom left"
+                           placeholder="Select date" autocomplete="off" readonly="readonly">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-calendar">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                </div>
+                <div class="mil-field-frame mil-mb-20">
+                    <label>Check-out</label>
+                    <input id="check-out-2" type="text" class="datepicker-here" data-position="bottom left"
+                           placeholder="Select date" autocomplete="off" readonly="readonly">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-calendar">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                </div>
+                <div class="mil-field-frame mil-mb-20">
+                    <label>Adults</label>
+                    <input type="text" placeholder="Enter quantity" value="1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-users">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <button type="submit" class="mil-button mil-accent-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-search">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <span>Search</span>
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- book popup end -->
+
+    <!-- comment popup -->
+    <div class="mil-comment-popup-frame">
+        <div class="mil-book-popup">
+            <div class="mil-popup-head mil-mb-40">
+                <h3 class="mil-h3-lg">Post a comment</h3>
+                <div class="mil-close-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-x">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </div>
+            </div>
+            <form>
+                <div class="mil-field-frame mil-mb-20">
+                    <label>Name</label>
+                    <input type="text" placeholder="Enter your name">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-user">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+                <div class="mil-field-frame mil-mb-20">
+                    <label>Email</label>
+                    <input type="email" placeholder="Enter your email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-mail">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </div>
+                <div class="mil-field-frame mil-mb-20">
+                    <label>Comment</label>
+                    <textarea type="text" placeholder="Write a comment here" style="height: 200px"></textarea>
+                </div>
+                <button type="submit" class="mil-button mil-accent-1">
+                    <span>Send</span>
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- comment popup end -->
+
+    <div class="mil-progressbar"></div>
+
+</div>
+<!-- wrapper end -->
+
+<!-- jQuery js -->
+<script src="{% static "js/plugins/jquery.min.js" %}"></script>
+<!-- smooth scroll js -->
+<script src="{% static "js/plugins/smooth-scroll.js" %}"></script>
+<!-- swiper js -->
+<script src="{% static "js/plugins/swiper.min.js" %}"></script>
+<!-- datepicker js -->
+<script src="{% static "js/plugins/datepicker.js" %}"></script>
+<!-- aquarelle js -->
+<script src="{% static "js/main.js" %}"></script>
+</body>
+
+</html>
