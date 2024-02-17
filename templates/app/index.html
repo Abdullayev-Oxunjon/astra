@@ -146,44 +146,49 @@
 
                     <div class="mil-banner-content-frame">
                         <div class="mil-banner-content">
-                            <div class="mil-suptitle mil-mb-40"></div>
-                            <h1 class="mil-mb-40" style="color: #000000"></h1>
                             <div class="mil-search-panel mil-mb-20">
-                                <form>
+                                <form action="{% url "index" %}" method="post">
+                                    {% csrf_token %}
                                     <div class="mil-form-grid">
                                         <div class="mil-col-5 mil-field-frame">
-                                            <label>Check-in</label>
-                                            <input type="text" class="datepicker-here" data-position="bottom left"
-                                                   placeholder="Select date" autocomplete="off" readonly="readonly">
+                                            <label>{% trans "Ism" %}</label>
+                                            <input type="text" name="first_name"
+                                                   placeholder="{% trans "Ismingizni kiriting" %}" id="" required>
+
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                  viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                  stroke-width="2"
                                                  stroke-linecap="round" stroke-linejoin="round"
-                                                 class="feather feather-calendar">
-                                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                                <line x1="16" y1="2" x2="16" y2="6"></line>
-                                                <line x1="8" y1="2" x2="8" y2="6"></line>
-                                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                                                 class="feather feather-users">
+                                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                                <circle cx="9" cy="7" r="4"></circle>
+                                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                                             </svg>
+
+
                                         </div>
                                         <div class="mil-col-5 mil-field-frame">
-                                            <label>Check-out</label>
-                                            <input type="text" class="datepicker-here" data-position="bottom left"
-                                                   placeholder="Select date" autocomplete="off" readonly="readonly">
+                                            <label>{% trans "Familiya" %}</label>
+                                            <input type="text" name="last_name"
+                                                   placeholder="{% trans "Familyangizni kiriting" %}" id="" required>
+
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                  viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                  stroke-width="2"
                                                  stroke-linecap="round" stroke-linejoin="round"
-                                                 class="feather feather-calendar">
-                                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                                <line x1="16" y1="2" x2="16" y2="6"></line>
-                                                <line x1="8" y1="2" x2="8" y2="6"></line>
-                                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                                                 class="feather feather-users">
+                                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                                <circle cx="9" cy="7" r="4"></circle>
+                                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                                             </svg>
+
                                         </div>
                                         <div class="mil-col-2 mil-field-frame">
-                                            <label>Adults</label>
-                                            <input type="text" placeholder="Enter quantity" value="1">
+                                            <label>{% trans "Telefon raqam" %}</label>
+                                            <input type="text" name="phone_number" placeholder="{% trans "901234567" %}"
+                                                   required>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                  viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                  stroke-width="2"
@@ -197,14 +202,8 @@
                                         </div>
                                     </div>
                                     <button type="submit">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                             stroke-linecap="round" stroke-linejoin="round"
-                                             class="feather feather-search">
-                                            <circle cx="11" cy="11" r="8"></circle>
-                                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                        </svg>
-                                        <span>Search</span>
+
+                                        <span>{% trans "Yuborish" %}</span>
                                     </button>
                                 </form>
                             </div>
@@ -217,8 +216,6 @@
 
         </div>
     </div>
-
-
     <!-- banner end -->
 
     <!-- services -->
@@ -231,7 +228,7 @@
             <div class="row mil-mb-40">
                 {% for service in services %}
                     <div class="col-md-6 col-xl-3">
-                        <a href="service.html" class="mil-service-card mil-mb-40-adapt mil-fade-up">
+                        <a href="{% url "service" service.id %}" class="mil-service-card mil-mb-40-adapt mil-fade-up">
                             <div class="mil-img-frame">
                                 <img src="{{ service.image.url }}" alt="img">
                             </div>
@@ -377,7 +374,8 @@
                                 </li>
                             </ul>
                             <div class="mil-descr">
-                                <h3 class="mil-mb-20">{{ room.title }}</h3>
+                                <a href="{% url "room" room.id %}" class="delete_underline"><h3
+                                        class="mil-mb-20">{{ room.title }}</h3></a>
                                 <p class="mil-mb-40">{{ room.description|slice:":85" }}......</p>
                                 <div class="mil-divider"></div>
                                 <div class="mil-card-bottom">
@@ -386,7 +384,8 @@
                                     </div>
 
 
-                                    <a href="{% url 'room' %}" class="mil-button mil-icon-button mil-accent-1">
+                                    <a href="{% url 'room' room.id %}"
+                                       class="mil-button mil-icon-button mil-accent-1 delete_underline">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                              viewBox="0 0 24 24"
                                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -560,14 +559,16 @@
         <div class="container">
 
             <div class="mil-text-center">
-                <div class="mil-suptitle mil-mb-20 mil-fade-up">Reviews</div>
-                <h2 class="mil-mb-100 mil-fade-up">Customer Voices: <br>Hear What They Say!</h2>
+                <div class="mil-suptitle mil-mb-20 mil-fade-up">{% trans "Sharhlar" %}</div>
+                <h2 class="mil-mb-100 mil-fade-up">{% trans "Mehmonlarimiz biz haqimizda nima deydi?" %}
+                    <br>{% trans "Ularga quloq tuting" %}</h2>
             </div>
 
             <div class="mil-revi-pagination mil-mb-40 mil-fade-up"></div>
 
             <div class="row mil-relative justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-8"
+                >
 
                     <svg width="24" height="19" viewBox="0 0 24 19" fill="none" xmlns="http://www.w3.org/2000/svg"
                          class="mil-quote-icon mil-fade-up">
@@ -577,31 +578,25 @@
                     </svg>
 
                     <div class="swiper-container mil-reviews-slider">
+
                         <div class="swiper-wrapper">
-                            {% for room in rooms %}
-                                <div class="swiper-slide">
-                                    <div class="mil-review-frame mil-text-center" data-swiper-parallax="-250"
-                                         data-swiper-parallax-opacity="0">
-                                        <div class="mil-fade-up">
-                                            <h3 class="mil-mb-10">Sarah Newman</h3>
-                                            <p class="mil-link mil-mb-40">Envato market</p>
+                            {% for review in reviews %}
+                                {% if review.is_active == True %}
+
+                                    <div class="swiper-slide">
+                                        <div class="mil-review-frame mil-text-center" data-swiper-parallax="-250"
+                                             data-swiper-parallax-opacity="0">
+                                            <div class="mil-fade-up">
+                                                <h3 class="mil-mb-10">{{ review.name }}</h3>
+                                                <p class="mil-link mil-mb-40">{{ review.degree }}</p>
+                                            </div>
+                                            <p class="mil-fade-up">{{ review.description }}</p>
                                         </div>
-                                        <p class="mil-fade-up">An unforgettable stay at aquarelle! The beachfront
-                                            location
-                                            provided breathtaking views, and the hotel's blend of luxury and a relaxed
-                                            atmosphere was perfect. The attentive staff and excellent amenities,
-                                            including a
-                                            refreshing pool and superb dining options, made my experience truly
-                                            exceptional.
-                                            aquarelle is a haven for those seeking relaxation with a touch of
-                                            indulgence.
-                                            Already looking forward to my next visit to this seaside paradise!</p>
                                     </div>
-                                </div>
+                                {% endif %}
                             {% endfor %}
-
-
                         </div>
+
                     </div>
 
                     <div class="mil-slider-nav mil-reviews-nav mil-fade-up">
@@ -642,7 +637,7 @@
                 {% for blog in blogs %}
                     <div class="col-xl-4">
 
-                        <a href="{% url 'publication' %}" class="mil-card mil-mb-40-adapt mil-fade-up">
+                        <a href="{% url 'publication' blog.id %}" class="mil-card mil-mb-40-adapt mil-fade-up">
                             <div class="swiper-container mil-card-slider">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
@@ -789,7 +784,7 @@
     <div class="mil-book-popup-frame">
         <div class="mil-book-popup">
             <div class="mil-popup-head mil-mb-40">
-                <h3 class="mil-h3-lg">Search</h3>
+                <h3 class="mil-h3-lg">{% trans "Yuborish" %}</h3>
                 <div class="mil-close-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -799,11 +794,12 @@
                     </svg>
                 </div>
             </div>
-            <form>
+            <form action="{% url "index" %}" method="post">
+                {% csrf_token %}
                 <div class="mil-field-frame mil-mb-20">
-                    <label>Check-in</label>
-                    <input id="check-in-2" type="text" class="datepicker-here" data-position="bottom left"
-                           placeholder="Select date" autocomplete="off" readonly="readonly">
+                    <label>{% trans "Ism" %}</label>
+                    <input type="text" name="first_name"
+                           placeholder="{% trans "Ismingizni kiriting" %}" id="" required>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-calendar">
@@ -814,9 +810,9 @@
                     </svg>
                 </div>
                 <div class="mil-field-frame mil-mb-20">
-                    <label>Check-out</label>
-                    <input id="check-out-2" type="text" class="datepicker-here" data-position="bottom left"
-                           placeholder="Select date" autocomplete="off" readonly="readonly">
+                    <label>{% trans "Familiya" %}</label>
+                    <input type="text" name="last_name"
+                           placeholder="{% trans "Familyangizni kiriting" %}" id="" required>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-calendar">
@@ -827,8 +823,9 @@
                     </svg>
                 </div>
                 <div class="mil-field-frame mil-mb-20">
-                    <label>Adults</label>
-                    <input type="text" placeholder="Enter quantity" value="1">
+                    <label>{% trans "Telefon raqam" %}</label>
+                    <input type="text" name="phone_number" placeholder="{% trans "901234567" %}"
+                           required>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-users">
@@ -839,13 +836,7 @@
                     </svg>
                 </div>
                 <button type="submit" class="mil-button mil-accent-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                         class="feather feather-search">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                    <span>Search</span>
+                    <span>{% trans "Yuborish" %}</span>
                 </button>
             </form>
         </div>

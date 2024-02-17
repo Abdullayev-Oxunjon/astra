@@ -9,6 +9,10 @@
 }
 
 
+.delete_underline{
+    text-decoration: none;
+}
+
 /* Center the content within the list items */
 .menu-item-has-children a {
     display: flex;
@@ -2259,6 +2263,10 @@ a.mil-link {
     padding: 40px 40px 20px
 }
 
+
+
+
+
 .mil-card .mil-descr .mil-card-bottom {
     padding-top: 20px;
     display: -webkit-box;
@@ -2472,16 +2480,6 @@ a.mil-link {
     box-shadow: inset 0 0 0 4px #F4F5F5
 }
 
-.mil-revi-pagination .swiper-pagination-bullet .mil-custom-dot {
-    background-color: red;
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background-size: cover;
-    background-position: top;
-    -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1) !important;
-    transition: 0.4s cubic-bezier(0, 0, 0.3642, 1) !important
-}
 
 @media screen and (max-width: 992px) {
     .mil-revi-pagination .swiper-pagination-bullet .mil-custom-dot {
@@ -2490,33 +2488,7 @@ a.mil-link {
     }
 }
 
-.mil-revi-pagination .swiper-pagination-bullet .mil-custom-dot.mil-slide-1 {
-    background-image: url(../img/faces/1.jpg)
-}
 
-.mil-revi-pagination .swiper-pagination-bullet .mil-custom-dot.mil-slide-2 {
-    background-image: url(../img/faces/2.jpg)
-}
-
-.mil-revi-pagination .swiper-pagination-bullet .mil-custom-dot.mil-slide-3 {
-    background-image: url(../img/faces/3.jpg)
-}
-
-.mil-revi-pagination .swiper-pagination-bullet .mil-custom-dot.mil-slide-4 {
-    background-image: url(../img/faces/4.jpg)
-}
-
-.mil-revi-pagination .swiper-pagination-bullet .mil-custom-dot.mil-slide-5 {
-    background-image: url(../img/faces/5.jpg)
-}
-
-.mil-revi-pagination .swiper-pagination-bullet .mil-custom-dot.mil-slide-6 {
-    background-image: url(../img/faces/6.jpg)
-}
-
-.mil-revi-pagination .swiper-pagination-bullet .mil-custom-dot.mil-slide-7 {
-    background-image: url(../img/faces/7.jpg)
-}
 
 .mil-revi-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
     -webkit-box-shadow: inset 0 0 0 4px rgb(236, 185, 52);

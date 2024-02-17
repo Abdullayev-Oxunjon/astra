@@ -140,15 +140,15 @@
             <div class="mil-banner-head">
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-xl-6">
-                        <h1 class="mil-h2-lg mil-mb-40">Swimming pools</h1>
+                        <h1 class="mil-h2-lg mil-mb-40">{{ service.title }}</h1>
                     </div>
                     <div class="col-lg-6 col-xl-6">
                         <div class="mil-desctop-right mil-right-no-m mil-fade-up mil-mb-40">
                             <div class="mil-suptitle mil-breadcrumbs mil-light">
                                 <ul>
-                                    <li><a href="home-1.html">Home</a></li>
-                                    <li><a href="services.html">Services</a></li>
-                                    <li><a href="service.html">Surfing</a></li>
+                                    <li><a href="/">{% trans "Asosiy" %}</a></li>
+                                    <li><a href="{% url "services" %}">{% trans "Xizmatlar" %}</a></li>
+                                    <li><a href="{% url "service" service.id %}">{{ service.title }}</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -168,7 +168,7 @@
 
                     <!-- cover -->
                     <div class="mil-img mil-img-hori mil-mb-100 mil-fade-up">
-                        <img src="{% static "img/services/4.jpg" %}" alt="img">
+                        <img src="{{ service.image.url }}" alt="img">
                     </div>
                     <!-- cover end -->
 
@@ -176,158 +176,29 @@
                     <div class="row">
                         <div class="col-xl-11">
                             <div class="mil-dercription mil-mb-100">
-                                <h3 class="mil-fade-up mil-mb-40">Description of the room</h3>
-                                <p class="mil-fade-up mil-fade-up mil-mb-20">Vestibulum lectus mauris ultrices eros.
-                                    Pharetra massa massa ultricies mi quis hendrerit dolor magna eget. Sit amet nisl
-                                    purus in mollis nunc sed. Aenean euismod elementum nisi quis eleifend.</p>
+                                <h3 class="mil-fade-up mil-mb-40">{% trans "Xizmat tavsifi" %}</h3>
+                                <p class="mil-fade-up mil-fade-up mil-mb-20">{{ service.description }}</p>
 
-                                <p class="mil-fade-up mil-mb-20">Pulvinar neque laoreet suspendisse interdum consectetur
-                                    libero. Urna id volutpat lacus laoreet non curabitur gravida arcu ac. Varius morbi
-                                    enim nunc faucibus. Ornare suspendisse sed nisi lacus sed viverra tellus in. Massa
-                                    tincidunt dui ut ornare lectus sit amet. Suspendisse sed nisi lacus sed viverra
-                                    tellus in. Dapibus ultrices in iaculis.</p>
-
-                                <p class="mil-fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Felis donec et odio
-                                    pellentesque. Nisi est sit amet facilisis magna. Semper feugiat nibh sed pulvinar.
-                                    Id leo in vitae turpis massa sed elementum tempus. Eget est lorem ipsum dolor.
-                                    Bibendum enim facilisis gravida neque. Nibh ipsum consequat nisl vel. Fermentum dui
-                                    faucibus in ornare quam viverra.</p>
                             </div>
                         </div>
                     </div>
                     <!-- description end -->
 
-                    <!-- features -->
-                    <div class="row mil-mb-60-adapt">
-                        <div class="col-12">
-                            <h3 class="mil-fade-up mil-mb-40">Key features</h3>
-                        </div>
-                        <div class="col-xl-4">
 
-                            <div class="mil-iconbox mil-iconbox-sm mil-mb-40-adapt mil-fade-up">
-                                <div class="mil-bg-icon"></div>
-                                <div class="mil-icon mil-icon-fix">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                         stroke-linejoin="round" class="feather feather-wind">
-                                        <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"></path>
-                                    </svg>
-                                </div>
-                                <h5>Air-conditioned</h5>
-                            </div>
-
-                        </div>
-                        <div class="col-xl-4">
-
-                            <div class="mil-iconbox mil-iconbox-sm mil-mb-40-adapt mil-fade-up">
-                                <div class="mil-bg-icon"></div>
-                                <div class="mil-icon mil-icon-fix">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                         stroke-linejoin="round" class="feather feather-wifi">
-                                        <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
-                                        <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
-                                        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
-                                        <line x1="12" y1="20" x2="12.01" y2="20"></line>
-                                    </svg>
-                                </div>
-                                <h5>Free wi-fi</h5>
-                            </div>
-
-                        </div>
-                        <div class="col-xl-4">
-
-                            <div class="mil-iconbox mil-iconbox-sm mil-mb-40-adapt mil-fade-up">
-                                <div class="mil-bg-icon"></div>
-                                <div class="mil-icon mil-icon-fix">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                         stroke-linejoin="round" class="feather feather-tv">
-                                        <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
-                                        <polyline points="17 2 12 7 7 2"></polyline>
-                                    </svg>
-                                </div>
-                                <h5>Smart TV</h5>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- features -->
-
-                    <h3 class="mil-fade-up mil-mb-40">FAQ</h3>
+                    <h3 class="mil-fade-up mil-mb-40">{% trans "Tez-tez so'raladigan savollar" %}</h3>
                     <div class="mil-faq-section mil-mb-100">
-                        <div class="mil-faq-item mil-fade-up active">
-                            <div class="mil-faq-question">
-                                <span class="mil-icon">+</span>
-                                <h3>How to make a room reservation?</h3>
-                            </div>
-                            <div class="mil-faq-answer">
-                                <p>To make a room reservation at our hotel, you can use our online service on the
-                                    website or contact our reservation department by phone.</p>
-                            </div>
-                        </div>
 
-                        <div class="mil-faq-item mil-fade-up">
-                            <div class="mil-faq-question">
-                                <span class="mil-icon">+</span>
-                                <h3>Are pets allowed in the hotel?</h3>
+                        {% for faq in faqs %}
+                            <div class="mil-faq-item mil-fade-up">
+                                <div class="mil-faq-question">
+                                    <span class="mil-icon">+</span>
+                                    <h3>{{ faq.question }}</h3>
+                                </div>
+                                <div class="mil-faq-answer">
+                                    <p>{{ faq.answer }}</p>
+                                </div>
                             </div>
-                            <div class="mil-faq-answer">
-                                <p>Yes, we are a pet-friendly hotel. We welcome guests to bring their well-behaved pets
-                                    with them. Please check our pet policy for more details.</p>
-                            </div>
-                        </div>
-
-                        <div class="mil-faq-item mil-fade-up">
-                            <div class="mil-faq-question">
-                                <span class="mil-icon">+</span>
-                                <h3>What amenities are included in the room rates?</h3>
-                            </div>
-                            <div class="mil-faq-answer">
-                                <p>Our room rates include complimentary Wi-Fi, access to the fitness center, and daily
-                                    breakfast. Additional amenities may vary depending on the room type. Please refer to
-                                    the "Amenities" section for more details.</p>
-                            </div>
-                        </div>
-
-                        <div class="mil-faq-item mil-fade-up">
-                            <div class="mil-faq-question">
-                                <span class="mil-icon">+</span>
-                                <h3>Is parking available at the hotel?</h3>
-                            </div>
-                            <div class="mil-faq-answer">
-                                <p>Yes, we provide on-site parking for our guests. There is a designated parking area,
-                                    and parking is available at an additional cost. Please check with our front desk for
-                                    parking options and rates.</p>
-                            </div>
-                        </div>
-
-                        <div class="mil-faq-item mil-fade-up">
-                            <div class="mil-faq-question">
-                                <span class="mil-icon">+</span>
-                                <h3>Can I cancel or modify my reservation?</h3>
-                            </div>
-                            <div class="mil-faq-answer">
-                                <p>Yes, you can cancel or modify your reservation up to 24 hours before your scheduled
-                                    arrival without incurring any charges. Please review our cancellation policy for
-                                    more information.</p>
-                            </div>
-                        </div>
-
-                        <div class="mil-faq-item mil-fade-up">
-                            <div class="mil-faq-question">
-                                <span class="mil-icon">+</span>
-                                <h3>How can I provide feedback about my stay?</h3>
-                            </div>
-                            <div class="mil-faq-answer">
-                                <p>We value your feedback! You can share your experience by completing our online
-                                    feedback form, which will be sent to our customer service team. We appreciate your
-                                    input to help us enhance our services.</p>
-                            </div>
-                        </div>
-
+                        {% endfor %}
                     </div>
 
                 </div>
@@ -336,35 +207,20 @@
 
                     <div class="mil-sticky mil-stycky-right mil-p-0-100" data-margin-top="140">
 
-                        <h3 class="mil-mb-40">All services</h3>
+                        <h3 class="mil-mb-40">{% trans "Hamma xizmatlar" %}</h3>
+                        {% for service in services %}
+                            <a href="{% url "service" service.id %}" class="mil-service-card-sm mil-mb-20 mil-fade-up">
+                                <div class="mil-img-frame">
+                                    <img src="{{ service.image.url }}" alt="img">
+                                </div>
+                                <div class="mil-description">
+                                    <h4>{{ service.title }}</h4>
+                                </div>
+                            </a>
 
-                        <a href="service.html" class="mil-service-card-sm mil-mb-20 mil-fade-up">
-                            <div class="mil-img-frame">
-                                <img src="{% static "img/services/2.jpg" %}" alt="img">
-                            </div>
-                            <div class="mil-description">
-                                <h4>Beach vacation</h4>
-                            </div>
-                        </a>
-                        <a href="service.html" class="mil-service-card-sm mil-mb-20 mil-fade-up">
-                            <div class="mil-img-frame">
-                                <img src="{% static "img/services/3.jpg" %}" alt="img">
-                            </div>
-                            <div class="mil-description">
-                                <h4>Beach restaurant</h4>
-                            </div>
-                        </a>
-                        <a href="service.html" class="mil-service-card-sm mil-mb-20 mil-fade-up">
-                            <div class="mil-img-frame">
-                                <img src="{% static "img/services/4.jpg" %}" alt="img">
-                            </div>
-                            <div class="mil-description">
-                                <h4>Swimming pools</h4>
-                            </div>
-                        </a>
-
-                        <a href="#." class="mil-button mil-accent-1 mil-reply">
-                            <span>View all</span>
+                        {% endfor %}
+                        <a href="{% url "services" %}" class="mil-button mil-accent-1 mil-reply">
+                            <span>{% trans "Hammasini Ko'rish" %}</span>
                         </a>
 
                     </div>
@@ -379,20 +235,21 @@
     <div class="mil-content-pad mil-p-100-100 mil-fade-up">
         <div class="container">
             <div class="mil-text-center">
-                <div class="mil-suptitle mil-mb-20 mil-fade-up">Call to action</div>
-                <h2 class="mil-h2-lg mil-mb-40 mil-fade-up">Do you have any questions?<br>We are available 24/7</h2>
+                <div class="mil-suptitle mil-mb-20 mil-fade-up">{% trans "Biz bilan bog'lanish" %}</div>
+                <h2 class="mil-h2-lg mil-mb-40 mil-fade-up">{% trans "Savollaringiz bormi?" %}<br>{% trans "Biz 24/7 ishlaymiz" %}
+                </h2>
                 <span class="mil-buttons-frame mil-center mil-fade-up">
-                        <a href="contact.html" class="mil-button">
+                        <a href="{% url "contact" %}" class="mil-button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                  stroke-linejoin="round" class="feather feather-mail">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
                             </svg>
-                            <span>Get in touch</span>
+                            <span>{% trans "Bog'lanish" %}</span>
                         </a>
                         <a href="#." class="mil-link mil-open-book-popup">
-                            <span>Book now</span>
+                            <span>{% trans "Hoziroq band qiling" %}</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                  stroke-linejoin="round" class="feather feather-arrow-right">
@@ -411,8 +268,8 @@
         <div class="container">
             <div class="row justify-content-between align-items-end mil-mb-100">
                 <div class="col-lg-7">
-                    <div class="mil-suptitle mil-fade-up mil-mb-20">Welcome friend</div>
-                    <h2 class="mil-fade-up">We recommend</h2>
+                    <div class="mil-suptitle mil-fade-up mil-mb-20">{% trans "Xush Kelibsiz Do'stim" %}</div>
+                    <h2 class="mil-fade-up">{% trans "Biz tavsiya qilamiz" %}</h2>
                 </div>
                 <div class="col-lg-5">
                     <div class="mil-desctop-right mil-fade-up">
@@ -442,505 +299,127 @@
 
             <div class="swiper-container mil-reco-slider mil-mb-40">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    {% for room in rooms %}
+                        <div class="swiper-slide">
 
-                        <div class="mil-card mil-mb-40-adapt mil-fade-up">
-                            <div class="swiper-container mil-card-slider">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="mil-card-cover">
-                                            <img src="{% static "img/rooms/4.1.jpg" %}" alt="cover"
-                                                 data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
+                            <div class="mil-card mil-mb-40-adapt mil-fade-up">
+                                <div class="swiper-container mil-card-slider">
+                                    <div class="swiper-wrapper">
+                                        {% for i in room.images.all %}
+                                            <div class="swiper-slide">
+                                                <div class="mil-card-cover">
+                                                    <img src="{{ i.image.url }}" alt="cover"
+                                                         data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="mil-card-nav">
+                                        <div class="mil-slider-btn mil-card-prev">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                 stroke-linecap="round" stroke-linejoin="round"
+                                                 class="feather feather-arrow-right">
+                                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                <polyline points="12 5 19 12 12 19"></polyline>
+                                            </svg>
+                                        </div>
+                                        <div class="mil-slider-btn mil-card-next">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                 stroke-linecap="round" stroke-linejoin="round"
+                                                 class="feather feather-arrow-right">
+                                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                <polyline points="12 5 19 12 12 19"></polyline>
+                                            </svg>
                                         </div>
                                     </div>
-                                    <div class="swiper-slide">
-                                        <div class="mil-card-cover">
-                                            <img src="{% static "img/rooms/4.2.jpg" %}" alt="cover"
-                                                 data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="mil-card-cover">
-                                            <img src="{% static "img/rooms/4.3.jpg" %}" alt="cover"
-                                                 data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="mil-card-cover">
-                                            <img src="{% static "img/rooms/4.4.jpg" %}" alt="cover"
-                                                 data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
-                                        </div>
-                                    </div>
+                                    <div class="mil-card-pagination"></div>
                                 </div>
-                                <div class="mil-card-nav">
-                                    <div class="mil-slider-btn mil-card-prev">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                             stroke-linecap="round" stroke-linejoin="round"
-                                             class="feather feather-arrow-right">
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                            <polyline points="12 5 19 12 12 19"></polyline>
-                                        </svg>
-                                    </div>
-                                    <div class="mil-slider-btn mil-card-next">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                             stroke-linecap="round" stroke-linejoin="round"
-                                             class="feather feather-arrow-right">
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                            <polyline points="12 5 19 12 12 19"></polyline>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="mil-card-pagination"></div>
-                            </div>
-                            <ul class="mil-parameters">
-                                <li>
-                                    <div class="mil-icon">
-                                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <g>
-                                                <path d="M12.7432 5.75582C12.6516 7.02721 11.7084 8.00663 10.6799 8.00663C9.65144 8.00663 8.70673 7.02752 8.6167 5.75582C8.52291 4.43315 9.44106 3.505 10.6799 3.505C11.9188 3.505 12.837 4.45722 12.7432 5.75582Z"
+                                <ul class="mil-parameters">
+                                    <li>
+                                        <div class="mil-icon">
+                                            <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path d="M12.7432 5.75582C12.6516 7.02721 11.7084 8.00663 10.6799 8.00663C9.65144 8.00663 8.70673 7.02752 8.6167 5.75582C8.52291 4.43315 9.44106 3.505 10.6799 3.505C11.9188 3.505 12.837 4.45722 12.7432 5.75582Z"
+                                                          stroke="black" stroke-width="1.00189" stroke-linecap="round"
+                                                          stroke-linejoin="round"/>
+                                                    <path d="M10.6793 10.0067C8.64232 10.0067 6.68345 11.0185 6.19272 12.9889C6.12771 13.2496 6.29118 13.5075 6.55905 13.5075H14.7999C15.0678 13.5075 15.2303 13.2496 15.1662 12.9889C14.6755 10.9869 12.7166 10.0067 10.6793 10.0067Z"
+                                                          stroke="black" stroke-width="1.00189" stroke-miterlimit="10"/>
+                                                    <path d="M6.42937 6.31713C6.3562 7.33276 5.59385 8.13264 4.77209 8.13264C3.95033 8.13264 3.18672 7.33308 3.1148 6.31713C3.04007 5.26053 3.7821 4.50537 4.77209 4.50537C5.76208 4.50537 6.50411 5.27992 6.42937 6.31713Z"
+                                                          stroke="black" stroke-width="1.00189" stroke-linecap="round"
+                                                          stroke-linejoin="round"/>
+                                                    <path d="M6.61604 10.0688C6.05177 9.81023 5.4303 9.71082 4.77162 9.71082C3.14604 9.71082 1.57985 10.5189 1.18752 12.0929C1.13594 12.3011 1.26661 12.5071 1.48043 12.5071H4.99045"
+                                                          stroke="black" stroke-width="1.00189" stroke-miterlimit="10"
+                                                          stroke-linecap="round"/>
+                                                </g>
+                                                <defs>
+                                                    <clipPath>
+                                                        <rect width="16.0035" height="16.0035" fill="white"
+                                                              transform="translate(0.176514 0.504028)"/>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </div>
+                                        <div>{% trans "Odamlar soni" %}: {{ room.person }}</div>
+                                    </li>
+                                    <li>
+                                        <div class="mil-icon">
+                                            <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M10.9578 14.6084H12.7089C13.1733 14.6084 13.6187 14.4239 13.9471 14.0955C14.2755 13.7671 14.46 13.3217 14.46 12.8573V11.1062"
                                                       stroke="black" stroke-width="1.00189" stroke-linecap="round"
                                                       stroke-linejoin="round"/>
-                                                <path d="M10.6793 10.0067C8.64232 10.0067 6.68345 11.0185 6.19272 12.9889C6.12771 13.2496 6.29118 13.5075 6.55905 13.5075H14.7999C15.0678 13.5075 15.2303 13.2496 15.1662 12.9889C14.6755 10.9869 12.7166 10.0067 10.6793 10.0067Z"
-                                                      stroke="black" stroke-width="1.00189" stroke-miterlimit="10"/>
-                                                <path d="M6.42937 6.31713C6.3562 7.33276 5.59385 8.13264 4.77209 8.13264C3.95033 8.13264 3.18672 7.33308 3.1148 6.31713C3.04007 5.26053 3.7821 4.50537 4.77209 4.50537C5.76208 4.50537 6.50411 5.27992 6.42937 6.31713Z"
+                                                <path d="M14.46 6.10644V4.35534C14.46 3.89092 14.2755 3.44553 13.9471 3.11713C13.6187 2.78874 13.1733 2.60425 12.7089 2.60425H10.9578"
                                                       stroke="black" stroke-width="1.00189" stroke-linecap="round"
                                                       stroke-linejoin="round"/>
-                                                <path d="M6.61604 10.0688C6.05177 9.81023 5.4303 9.71082 4.77162 9.71082C3.14604 9.71082 1.57985 10.5189 1.18752 12.0929C1.13594 12.3011 1.26661 12.5071 1.48043 12.5071H4.99045"
-                                                      stroke="black" stroke-width="1.00189" stroke-miterlimit="10"
-                                                      stroke-linecap="round"/>
-                                            </g>
-                                            <defs>
-                                                <clipPath>
-                                                    <rect width="16.0035" height="16.0035" fill="white"
-                                                          transform="translate(0.176514 0.504028)"/>
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
+                                                <path d="M5.95898 14.6084H4.20788C3.74346 14.6084 3.29806 14.4239 2.96967 14.0955C2.64128 13.7671 2.45679 13.3217 2.45679 12.8573V11.1062"
+                                                      stroke="black" stroke-width="1.00189" stroke-linecap="round"
+                                                      stroke-linejoin="round"/>
+                                                <path d="M2.45679 6.10644V4.35534C2.45679 3.89092 2.64128 3.44553 2.96967 3.11713C3.29806 2.78874 3.74346 2.60425 4.20788 2.60425H5.95898"
+                                                      stroke="black" stroke-width="1.00189" stroke-linecap="round"
+                                                      stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div>{% trans "O'lchami" %}: {{ room.size }}ft²</div>
+                                    </li>
+                                </ul>
+                                <div class="mil-descr">
+                                    <a href="{% url "room" room.id %}" class="delete_underline"><h3
+                                            class="mil-mb-20">{{ room.title }}</h3></a>
+                                    <p class="mil-mb-40">{{ room.description|slice:":80" }} .....</p>
+                                    <div class="mil-divider"></div>
+                                    <div class="mil-card-bottom">
+                                        <div class="mil-price"><span class="mil-symbol"></span><span
+                                                class="mil-number">{{ room.price }}</span>/so'm
+                                        </div>
+                                        <a href="{% url "room" room.id %}"
+                                           class="mil-button mil-icon-button mil-accent-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                 stroke-linecap="round" stroke-linejoin="round"
+                                                 class="feather feather-bookmark">
+                                                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                                            </svg>
+                                        </a>
                                     </div>
-                                    <div>Adults: 4</div>
-                                </li>
-                                <li>
-                                    <div class="mil-icon">
-                                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M10.9578 14.6084H12.7089C13.1733 14.6084 13.6187 14.4239 13.9471 14.0955C14.2755 13.7671 14.46 13.3217 14.46 12.8573V11.1062"
-                                                  stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                  stroke-linejoin="round"/>
-                                            <path d="M14.46 6.10644V4.35534C14.46 3.89092 14.2755 3.44553 13.9471 3.11713C13.6187 2.78874 13.1733 2.60425 12.7089 2.60425H10.9578"
-                                                  stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                  stroke-linejoin="round"/>
-                                            <path d="M5.95898 14.6084H4.20788C3.74346 14.6084 3.29806 14.4239 2.96967 14.0955C2.64128 13.7671 2.45679 13.3217 2.45679 12.8573V11.1062"
-                                                  stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                  stroke-linejoin="round"/>
-                                            <path d="M2.45679 6.10644V4.35534C2.45679 3.89092 2.64128 3.44553 2.96967 3.11713C3.29806 2.78874 3.74346 2.60425 4.20788 2.60425H5.95898"
-                                                  stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                  stroke-linejoin="round"/>
-                                        </svg>
-                                    </div>
-                                    <div>Size: 95ft²</div>
-                                </li>
-                            </ul>
-                            <div class="mil-descr">
-                                <h3 class="mil-mb-20">Coastal Retreat</h3>
-                                <p class="mil-mb-40">Accusantium doloremque laudantium, totam rem aperiam beatae vitae
-                                    dicta sunt, explicabo</p>
-                                <div class="mil-divider"></div>
-                                <div class="mil-card-bottom">
-                                    <div class="mil-price"><span class="mil-symbol">$</span><span
-                                            class="mil-number">49</span>/per night
-                                    </div>
-                                    <a href="room-2.html" class="mil-button mil-icon-button mil-accent-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                             stroke-linecap="round" stroke-linejoin="round"
-                                             class="feather feather-bookmark">
-                                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-                                        </svg>
-                                    </a>
                                 </div>
                             </div>
+
                         </div>
-
-                    </div>
-                    <div class="swiper-slide">
-
-                        <div class="mil-card mil-mb-40-adapt mil-fade-up">
-                            <div class="swiper-container mil-card-slider">
-                                <div class="swiper-wrapper">
-
-                                    <div class="swiper-slide">
-                                        <div class="mil-card-cover">
-                                            <img src="{% static "img/rooms/4.2.jpg" %}" alt="cover"
-                                                 data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="mil-card-cover">
-                                            <img src="{% static "img/rooms/4.3.jpg" %}" alt="cover"
-                                                 data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="mil-card-cover">
-                                            <img src="{% static "img/rooms/4.4.jpg" %}" alt="cover"
-                                                 data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="mil-card-cover">
-                                            <img src="{% static "img/rooms/4.1.jpg" %}" alt="cover"
-                                                 data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mil-card-nav">
-                                    <div class="mil-slider-btn mil-card-prev">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                             stroke-linecap="round" stroke-linejoin="round"
-                                             class="feather feather-arrow-right">
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                            <polyline points="12 5 19 12 12 19"></polyline>
-                                        </svg>
-                                    </div>
-                                    <div class="mil-slider-btn mil-card-next">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                             stroke-linecap="round" stroke-linejoin="round"
-                                             class="feather feather-arrow-right">
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                            <polyline points="12 5 19 12 12 19"></polyline>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="mil-card-pagination"></div>
-                            </div>
-                            <ul class="mil-parameters">
-                                <li>
-                                    <div class="mil-icon">
-                                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <g>
-                                                <path d="M12.7432 5.75582C12.6516 7.02721 11.7084 8.00663 10.6799 8.00663C9.65144 8.00663 8.70673 7.02752 8.6167 5.75582C8.52291 4.43315 9.44106 3.505 10.6799 3.505C11.9188 3.505 12.837 4.45722 12.7432 5.75582Z"
-                                                      stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                      stroke-linejoin="round"/>
-                                                <path d="M10.6793 10.0067C8.64232 10.0067 6.68345 11.0185 6.19272 12.9889C6.12771 13.2496 6.29118 13.5075 6.55905 13.5075H14.7999C15.0678 13.5075 15.2303 13.2496 15.1662 12.9889C14.6755 10.9869 12.7166 10.0067 10.6793 10.0067Z"
-                                                      stroke="black" stroke-width="1.00189" stroke-miterlimit="10"/>
-                                                <path d="M6.42937 6.31713C6.3562 7.33276 5.59385 8.13264 4.77209 8.13264C3.95033 8.13264 3.18672 7.33308 3.1148 6.31713C3.04007 5.26053 3.7821 4.50537 4.77209 4.50537C5.76208 4.50537 6.50411 5.27992 6.42937 6.31713Z"
-                                                      stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                      stroke-linejoin="round"/>
-                                                <path d="M6.61604 10.0688C6.05177 9.81023 5.4303 9.71082 4.77162 9.71082C3.14604 9.71082 1.57985 10.5189 1.18752 12.0929C1.13594 12.3011 1.26661 12.5071 1.48043 12.5071H4.99045"
-                                                      stroke="black" stroke-width="1.00189" stroke-miterlimit="10"
-                                                      stroke-linecap="round"/>
-                                            </g>
-                                            <defs>
-                                                <clipPath>
-                                                    <rect width="16.0035" height="16.0035" fill="white"
-                                                          transform="translate(0.176514 0.504028)"/>
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
-                                    </div>
-                                    <div>Adults: 4</div>
-                                </li>
-                                <li>
-                                    <div class="mil-icon">
-                                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M10.9578 14.6084H12.7089C13.1733 14.6084 13.6187 14.4239 13.9471 14.0955C14.2755 13.7671 14.46 13.3217 14.46 12.8573V11.1062"
-                                                  stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                  stroke-linejoin="round"/>
-                                            <path d="M14.46 6.10644V4.35534C14.46 3.89092 14.2755 3.44553 13.9471 3.11713C13.6187 2.78874 13.1733 2.60425 12.7089 2.60425H10.9578"
-                                                  stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                  stroke-linejoin="round"/>
-                                            <path d="M5.95898 14.6084H4.20788C3.74346 14.6084 3.29806 14.4239 2.96967 14.0955C2.64128 13.7671 2.45679 13.3217 2.45679 12.8573V11.1062"
-                                                  stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                  stroke-linejoin="round"/>
-                                            <path d="M2.45679 6.10644V4.35534C2.45679 3.89092 2.64128 3.44553 2.96967 3.11713C3.29806 2.78874 3.74346 2.60425 4.20788 2.60425H5.95898"
-                                                  stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                  stroke-linejoin="round"/>
-                                        </svg>
-                                    </div>
-                                    <div>Size: 95ft²</div>
-                                </li>
-                            </ul>
-                            <div class="mil-descr">
-                                <h3 class="mil-mb-20">Coastal Retreat</h3>
-                                <p class="mil-mb-40">Accusantium doloremque laudantium, totam rem aperiam beatae vitae
-                                    dicta sunt, explicabo</p>
-                                <div class="mil-divider"></div>
-                                <div class="mil-card-bottom">
-                                    <div class="mil-price"><span class="mil-symbol">$</span><span
-                                            class="mil-number">49</span>/per night
-                                    </div>
-                                    <a href="room-2.html" class="mil-button mil-icon-button mil-accent-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                             stroke-linecap="round" stroke-linejoin="round"
-                                             class="feather feather-bookmark">
-                                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="swiper-slide">
-
-                        <div class="mil-card mil-mb-40-adapt mil-fade-up">
-                            <div class="swiper-container mil-card-slider">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="mil-card-cover">
-                                            <img src="{% static "img/rooms/3.1.jpg" %}" alt="cover"
-                                                 data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="mil-card-cover">
-                                            <img src="{% static "img/rooms/3.2.jpg" %}" alt="cover"
-                                                 data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="mil-card-cover">
-                                            <img src="{% static "img/rooms/3.3.jpg" %}" alt="cover"
-                                                 data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="mil-card-cover">
-                                            <img src="{% static "img/rooms/3.4.jpg" %}" alt="cover"
-                                                 data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mil-card-nav">
-                                    <div class="mil-slider-btn mil-card-prev">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                             stroke-linecap="round" stroke-linejoin="round"
-                                             class="feather feather-arrow-right">
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                            <polyline points="12 5 19 12 12 19"></polyline>
-                                        </svg>
-                                    </div>
-                                    <div class="mil-slider-btn mil-card-next">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                             stroke-linecap="round" stroke-linejoin="round"
-                                             class="feather feather-arrow-right">
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                            <polyline points="12 5 19 12 12 19"></polyline>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="mil-card-pagination"></div>
-                            </div>
-                            <ul class="mil-parameters">
-                                <li>
-                                    <div class="mil-icon">
-                                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <g>
-                                                <path d="M12.7432 5.75582C12.6516 7.02721 11.7084 8.00663 10.6799 8.00663C9.65144 8.00663 8.70673 7.02752 8.6167 5.75582C8.52291 4.43315 9.44106 3.505 10.6799 3.505C11.9188 3.505 12.837 4.45722 12.7432 5.75582Z"
-                                                      stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                      stroke-linejoin="round"/>
-                                                <path d="M10.6793 10.0067C8.64232 10.0067 6.68345 11.0185 6.19272 12.9889C6.12771 13.2496 6.29118 13.5075 6.55905 13.5075H14.7999C15.0678 13.5075 15.2303 13.2496 15.1662 12.9889C14.6755 10.9869 12.7166 10.0067 10.6793 10.0067Z"
-                                                      stroke="black" stroke-width="1.00189" stroke-miterlimit="10"/>
-                                                <path d="M6.42937 6.31713C6.3562 7.33276 5.59385 8.13264 4.77209 8.13264C3.95033 8.13264 3.18672 7.33308 3.1148 6.31713C3.04007 5.26053 3.7821 4.50537 4.77209 4.50537C5.76208 4.50537 6.50411 5.27992 6.42937 6.31713Z"
-                                                      stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                      stroke-linejoin="round"/>
-                                                <path d="M6.61604 10.0688C6.05177 9.81023 5.4303 9.71082 4.77162 9.71082C3.14604 9.71082 1.57985 10.5189 1.18752 12.0929C1.13594 12.3011 1.26661 12.5071 1.48043 12.5071H4.99045"
-                                                      stroke="black" stroke-width="1.00189" stroke-miterlimit="10"
-                                                      stroke-linecap="round"/>
-                                            </g>
-                                            <defs>
-                                                <clipPath>
-                                                    <rect width="16.0035" height="16.0035" fill="white"
-                                                          transform="translate(0.176514 0.504028)"/>
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
-                                    </div>
-                                    <div>Adults: 4</div>
-                                </li>
-                                <li>
-                                    <div class="mil-icon">
-                                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M10.9578 14.6084H12.7089C13.1733 14.6084 13.6187 14.4239 13.9471 14.0955C14.2755 13.7671 14.46 13.3217 14.46 12.8573V11.1062"
-                                                  stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                  stroke-linejoin="round"/>
-                                            <path d="M14.46 6.10644V4.35534C14.46 3.89092 14.2755 3.44553 13.9471 3.11713C13.6187 2.78874 13.1733 2.60425 12.7089 2.60425H10.9578"
-                                                  stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                  stroke-linejoin="round"/>
-                                            <path d="M5.95898 14.6084H4.20788C3.74346 14.6084 3.29806 14.4239 2.96967 14.0955C2.64128 13.7671 2.45679 13.3217 2.45679 12.8573V11.1062"
-                                                  stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                  stroke-linejoin="round"/>
-                                            <path d="M2.45679 6.10644V4.35534C2.45679 3.89092 2.64128 3.44553 2.96967 3.11713C3.29806 2.78874 3.74346 2.60425 4.20788 2.60425H5.95898"
-                                                  stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                  stroke-linejoin="round"/>
-                                        </svg>
-                                    </div>
-                                    <div>Size: 95ft²</div>
-                                </li>
-                            </ul>
-                            <div class="mil-descr">
-                                <h3 class="mil-mb-20">Beachfront Bliss</h3>
-                                <p class="mil-mb-40">Accusantium doloremque laudantium, totam rem aperiam beatae vitae
-                                    dicta sunt, explicabo</p>
-                                <div class="mil-divider"></div>
-                                <div class="mil-card-bottom">
-                                    <div class="mil-price"><span class="mil-symbol">$</span><span
-                                            class="mil-number">49</span>/per night
-                                    </div>
-                                    <a href="room-2.html" class="mil-button mil-icon-button mil-accent-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                             stroke-linecap="round" stroke-linejoin="round"
-                                             class="feather feather-bookmark">
-                                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="swiper-slide">
-
-                        <div class="mil-card mil-mb-40-adapt mil-fade-up">
-                            <div class="swiper-container mil-card-slider">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="mil-card-cover">
-                                            <img src="{% static "img/rooms/5.1.jpg" %}" alt="cover"
-                                                 data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="mil-card-cover">
-                                            <img src="{% static "img/rooms/5.2.jpg" %}" alt="cover"
-                                                 data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="mil-card-cover">
-                                            <img src="{% static "img/rooms/5.3.jpg" %}" alt="cover"
-                                                 data-swiper-parallax="-100" data-swiper-parallax-scale="1.1">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mil-card-nav">
-                                    <div class="mil-slider-btn mil-card-prev">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                             stroke-linecap="round" stroke-linejoin="round"
-                                             class="feather feather-arrow-right">
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                            <polyline points="12 5 19 12 12 19"></polyline>
-                                        </svg>
-                                    </div>
-                                    <div class="mil-slider-btn mil-card-next">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                             stroke-linecap="round" stroke-linejoin="round"
-                                             class="feather feather-arrow-right">
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                            <polyline points="12 5 19 12 12 19"></polyline>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="mil-card-pagination"></div>
-                            </div>
-                            <ul class="mil-parameters">
-                                <li>
-                                    <div class="mil-icon">
-                                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <g>
-                                                <path d="M12.7432 5.75582C12.6516 7.02721 11.7084 8.00663 10.6799 8.00663C9.65144 8.00663 8.70673 7.02752 8.6167 5.75582C8.52291 4.43315 9.44106 3.505 10.6799 3.505C11.9188 3.505 12.837 4.45722 12.7432 5.75582Z"
-                                                      stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                      stroke-linejoin="round"/>
-                                                <path d="M10.6793 10.0067C8.64232 10.0067 6.68345 11.0185 6.19272 12.9889C6.12771 13.2496 6.29118 13.5075 6.55905 13.5075H14.7999C15.0678 13.5075 15.2303 13.2496 15.1662 12.9889C14.6755 10.9869 12.7166 10.0067 10.6793 10.0067Z"
-                                                      stroke="black" stroke-width="1.00189" stroke-miterlimit="10"/>
-                                                <path d="M6.42937 6.31713C6.3562 7.33276 5.59385 8.13264 4.77209 8.13264C3.95033 8.13264 3.18672 7.33308 3.1148 6.31713C3.04007 5.26053 3.7821 4.50537 4.77209 4.50537C5.76208 4.50537 6.50411 5.27992 6.42937 6.31713Z"
-                                                      stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                      stroke-linejoin="round"/>
-                                                <path d="M6.61604 10.0688C6.05177 9.81023 5.4303 9.71082 4.77162 9.71082C3.14604 9.71082 1.57985 10.5189 1.18752 12.0929C1.13594 12.3011 1.26661 12.5071 1.48043 12.5071H4.99045"
-                                                      stroke="black" stroke-width="1.00189" stroke-miterlimit="10"
-                                                      stroke-linecap="round"/>
-                                            </g>
-                                            <defs>
-                                                <clipPath>
-                                                    <rect width="16.0035" height="16.0035" fill="white"
-                                                          transform="translate(0.176514 0.504028)"/>
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
-                                    </div>
-                                    <div>Adults: 4</div>
-                                </li>
-                                <li>
-                                    <div class="mil-icon">
-                                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M10.9578 14.6084H12.7089C13.1733 14.6084 13.6187 14.4239 13.9471 14.0955C14.2755 13.7671 14.46 13.3217 14.46 12.8573V11.1062"
-                                                  stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                  stroke-linejoin="round"/>
-                                            <path d="M14.46 6.10644V4.35534C14.46 3.89092 14.2755 3.44553 13.9471 3.11713C13.6187 2.78874 13.1733 2.60425 12.7089 2.60425H10.9578"
-                                                  stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                  stroke-linejoin="round"/>
-                                            <path d="M5.95898 14.6084H4.20788C3.74346 14.6084 3.29806 14.4239 2.96967 14.0955C2.64128 13.7671 2.45679 13.3217 2.45679 12.8573V11.1062"
-                                                  stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                  stroke-linejoin="round"/>
-                                            <path d="M2.45679 6.10644V4.35534C2.45679 3.89092 2.64128 3.44553 2.96967 3.11713C3.29806 2.78874 3.74346 2.60425 4.20788 2.60425H5.95898"
-                                                  stroke="black" stroke-width="1.00189" stroke-linecap="round"
-                                                  stroke-linejoin="round"/>
-                                        </svg>
-                                    </div>
-                                    <div>Size: 95ft²</div>
-                                </li>
-                            </ul>
-                            <div class="mil-descr">
-                                <h3 class="mil-mb-20">Seaside Haven</h3>
-                                <p class="mil-mb-40">Accusantium doloremque laudantium, totam rem aperiam beatae vitae
-                                    dicta sunt, explicabo</p>
-                                <div class="mil-divider"></div>
-                                <div class="mil-card-bottom">
-                                    <div class="mil-price"><span class="mil-symbol">$</span><span
-                                            class="mil-number">49</span>/per night
-                                    </div>
-                                    <a href="room-2.html" class="mil-button mil-icon-button mil-accent-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                             stroke-linecap="round" stroke-linejoin="round"
-                                             class="feather feather-bookmark">
-                                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
 
             <div class="row justify-content-between">
                 <div class="col-lg-7">
-                    <p class="mil-fade-up">Accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo
-                        inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo.</p>
+                    <p class="mil-fade-up">{% trans "Astra mehmonxonasida biz sizning qulayligingizni birinchi o'ringa qo'yamiz.O'zingizni faqat siz uchun moslashtirilgan ajoyib xizmatlar olamiga kiriting." %}</p>
                 </div>
                 <div class="col-lg-5">
                     <div class="mil-desctop-right mil-fade-up">
-                        <a href="search.html" class="mil-button">
-                            <span>View all</span>
+                        <a href="{% url "rooms" %}" class="mil-button">
+                            <span>{% trans "Hammasini Ko'rish" %}</span>
                         </a>
                     </div>
                 </div>
@@ -1005,7 +484,7 @@
     <div class="mil-book-popup-frame">
         <div class="mil-book-popup">
             <div class="mil-popup-head mil-mb-40">
-                <h3 class="mil-h3-lg">Search</h3>
+                <h3 class="mil-h3-lg">{% trans "Yuborish" %}</h3>
                 <div class="mil-close-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -1015,11 +494,12 @@
                     </svg>
                 </div>
             </div>
-            <form>
+            <form action="{% url "service" service.id  %}" method="post">
+                {% csrf_token %}
                 <div class="mil-field-frame mil-mb-20">
-                    <label>Check-in</label>
-                    <input id="check-in-2" type="text" class="datepicker-here" data-position="bottom left"
-                           placeholder="Select date" autocomplete="off" readonly="readonly">
+                    <label>{% trans "Ism" %}</label>
+                    <input type="text" name="first_name"
+                           placeholder="{% trans "Ismingizni kiriting" %}" id="" required>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-calendar">
@@ -1030,9 +510,9 @@
                     </svg>
                 </div>
                 <div class="mil-field-frame mil-mb-20">
-                    <label>Check-out</label>
-                    <input id="check-out-2" type="text" class="datepicker-here" data-position="bottom left"
-                           placeholder="Select date" autocomplete="off" readonly="readonly">
+                    <label>{% trans "Familiya" %}</label>
+                    <input type="text" name="last_name"
+                           placeholder="{% trans "Familyangizni kiriting" %}" id="" required>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-calendar">
@@ -1043,8 +523,9 @@
                     </svg>
                 </div>
                 <div class="mil-field-frame mil-mb-20">
-                    <label>Adults</label>
-                    <input type="text" placeholder="Enter quantity" value="1">
+                    <label>{% trans "Telefon raqam" %}</label>
+                    <input type="text" name="phone_number" placeholder="{% trans "901234567" %}"
+                           required>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-users">
@@ -1055,13 +536,7 @@
                     </svg>
                 </div>
                 <button type="submit" class="mil-button mil-accent-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                         class="feather feather-search">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                    <span>Search</span>
+                    <span>{% trans "Yuborish" %}</span>
                 </button>
             </form>
         </div>

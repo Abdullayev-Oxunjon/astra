@@ -142,64 +142,12 @@
             <div class="mil-banner-img-4">
 
             </div>
-            <div class="row align-items-center justify-content-center">
-                <div class="col-xl-6">
-
-                    <div class="mil-banner-content-frame">
-                        <div class="mil-banner-content mil-text-center">
-                            <h1 class="mil-mb-40">{% trans "Bizning xizmatlar" %}</h1>
-                            <div class="mil-suptitle mil-breadcrumbs">
-                                <ul>
-                                    <li><a href="/">{% trans "Asosiy" %}</a></li>
-                                    <li><a href="{% url 'about' %}">{% trans "Biz haqimizda" %}</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
 
         </div>
     </div>
     <!-- banner end -->
 
-    <!-- services -->
-    <div class="mil-content-pad mil-p-100-100">
-        <div class="container">
-            <div class="mil-text-center">
-                <div class="mil-suptitle mil-mb-20 mil-fade-up">{% trans "Xizmatlar" %}</div>
-                <h2 class="mil-mb-100 mil-fade-up">{% trans "Yangi joylarni kash eting" %}</h2>
-            </div>
-            <div class="row mil-mb-40">
-                {% for service in services %}
-                    <div class="col-md-6 col-xl-3">
-                        <a href="{% url 'service' service.id %}" class="mil-service-card mil-mb-40-adapt mil-fade-up">
-                            <div class="mil-img-frame">
-                                <img src="{{ service.image.url }}" alt="img">
-                            </div>
-                            <div class="mil-description">{{ service.title }}</div>
-                        </a>
-                    </div>
-                {% endfor %}
-
-            </div>
-            <div class="row justify-content-between">
-                <div class="col-lg-7">
-                    <p class="mil-fade-up">{% trans "Astra mehmonxonasida biz sizning qulayligingizni birinchi o'ringa qo'yamiz.O'zingizni faqat siz uchun moslashtirilgan ajoyib xizmatlar olamiga kiriting." %}</p>
-                </div>
-                <div class="col-lg-5">
-                    <div class="mil-desctop-right mil-fade-up">
-                        <a href="{% url "services" %}" class="mil-button">
-                            <span>{% trans "Hammasini Ko'rish" %}</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- services end -->
-
+    <br><br><br><br><br>
     <!-- about 2 -->
     <div class="mil-about mil-p-100-0">
         <div class="container">
@@ -207,24 +155,15 @@
                 <div class="col-xl-5 mil-mb-100">
 
                     <div class="mil-text-frame">
-                        <div class="mil-suptitle mil-mb-20 mil-fade-up">{% trans 'Biz haqimizda' %}</div>
-                        <h2 class="mil-mb-40 mil-fade-up">{% trans "Astra Hotel mehmonxonasiga tashrif buyuring" %}</h2>
-                        <p class="mil-mb-20 mil-fade-up">{% trans "Astra Hotel - Qarshi shahrida joylashgan 3 yulduzli mehmonxona." %}</p>
+{#                        <div class="mil-suptitle mil-mb-20 mil-fade-up">{% trans "404   " %}</div>#}
+                        <h2 class="mil-mb-40 mil-fade-up">{% trans "Sahifa topilmadi yoki serverda ichki xatolik yuz berdi." %}</h2>
+                        <p class="mil-mb-20 mil-fade-up"></p>
 
-                        <p class="mil-mb-40 mil-fade-up">{% trans "Mehmonxonamiz xonaga xizmat ko'rsatish va 24 soat xizmat ko'rsatadigan resepsiyonga ega. Mehmonlar teras, bepul Wi-Fi va bepul shaxsiy avtoturargoh kabi qulayliklardan bahramand bo'lishlari mumkin. Mehmonxonada har kuni bufet va halol nonushta mavjud. Eng yaqin aeroport Qarshi aeroporti, Astra mehmonxonasidan 7 km uzoqlikda joylashgan." %}</p>
+                        <p class="mil-mb-40 mil-fade-up">{% trans "Kechirasiz, lekin siz qidirayotgan sahifa mavjud boʻlmasligi mumkin." %}</p>
 
                         <span class="mil-buttons-frame mil-fade-up">
-                                <a href="{% url "services" %}" class="mil-button">
-                                    <span>{% trans "Ko'proq o'qing" %}</span>
-                                </a>
-                                <a href="#" class="mil-link mil-open-book-popup">
-                                    <span>{% trans 'Hoziroq band qiling' %}</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                         stroke-linejoin="round" class="feather feather-arrow-right">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
+                                <a href="/" class="mil-button">
+                                    <span>{% trans "Asosiy sahifaga qaytish" %}</span>
                                 </a>
                             </span>
                     </div>
@@ -296,68 +235,7 @@
 
     <!-- footer end -->
 
-    <!-- book popup -->
-    <div class="mil-book-popup-frame">
-        <div class="mil-book-popup">
-            <div class="mil-popup-head mil-mb-40">
-                <h3 class="mil-h3-lg">{% trans "Yuborish" %}</h3>
-                <div class="mil-close-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                         class="feather feather-x">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </div>
-            </div>
-            <form action="{% url 'services' %}" method="post">
-                {% csrf_token %}
-                <div class="mil-field-frame mil-mb-20">
-                    <label>{% trans "Ism" %}</label>
-                    <input type="text" name="first_name"
-                           placeholder="{% trans "Ismingizni kiriting" %}" id="" required>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                         class="feather feather-calendar">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                    </svg>
-                </div>
-                <div class="mil-field-frame mil-mb-20">
-                    <label>{% trans "Familiya" %}</label>
-                    <input type="text" name="last_name"
-                           placeholder="{% trans "Familyangizni kiriting" %}" id="" required>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                         class="feather feather-calendar">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                    </svg>
-                </div>
-                <div class="mil-field-frame mil-mb-20">
-                    <label>{% trans "Telefon raqam" %}</label>
-                    <input type="text" name="phone_number" placeholder="{% trans "901234567" %}"
-                           required>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                         class="feather feather-users">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg>
-                </div>
-                <button type="submit" class="mil-button mil-accent-1">
-                    <span>{% trans "Yuborish" %}</span>
-                </button>
-            </form>
-        </div>
-    </div>
-    <!-- book popup end -->
+
 
     <div class="mil-progressbar"></div>
 

@@ -154,9 +154,15 @@
                                     <li><a href="{% url 'contact' %}">{% trans "Aloqa" %}</a></li>
                                 </ul>
                             </div>
+
                         </div>
                     </div>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="mil-field-frame mil-mb-20" style="color: red;text-align: center">{{ message }}</p>
+                        {% endfor %}
 
+                    {% endif %}
                 </div>
             </div>
 
@@ -167,12 +173,16 @@
     <!-- contact form -->
     <div class="mil-content-pad mil-p-100-100">
         <div class="container">
-            <form>
+
+            <form method="post" action="{% url 'contact' %}" id="formOne">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="formOne">
+
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="mil-field-frame mil-mb-20">
                             <label>{% trans 'Ism' %}</label>
-                            <input type="text" placeholder="{% trans "Ismingizni kiriting" %}">
+                            <input type="text" name="name" placeholder="{% trans "Ismingizni kiriting" %}" required>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                  stroke-linejoin="round" class="feather feather-user">
@@ -184,7 +194,7 @@
                     <div class="col-xl-6">
                         <div class="mil-field-frame mil-mb-20">
                             <label>{% trans 'Telefon raqam' %}</label>
-                            <input type="email" placeholder="{% trans "Telefon raqamingizni kiriting" %}">
+                            <input type="number" name="phone_number" placeholder="901234567" required>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                  stroke-linejoin="round" class="feather feather-mail">
@@ -196,7 +206,8 @@
                     <div class="col-xl-12">
                         <div class="mil-field-frame mil-mb-20">
                             <label>{% trans 'Xabar' %}</label>
-                            <textarea type="text" placeholder="{% trans 'Bizga xabar yozing' %}"></textarea>
+                            <textarea type="text" name="message" placeholder="{% trans 'Bizga xabar yozing' %}"
+                                      required></textarea>
                         </div>
                     </div>
                 </div>
@@ -215,6 +226,7 @@
                     </div>
                 </div>
             </form>
+
         </div>
     </div>
     <!-- contact form end -->
@@ -337,10 +349,11 @@
     <!-- footer end -->
 
     <!-- book popup -->
+
     <div class="mil-book-popup-frame">
         <div class="mil-book-popup">
             <div class="mil-popup-head mil-mb-40">
-                <h3 class="mil-h3-lg">Search</h3>
+                <h3 class="mil-h3-lg">{% trans "Yuborish" %}</h3>
                 <div class="mil-close-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -350,11 +363,13 @@
                     </svg>
                 </div>
             </div>
-            <form>
+            <form action="{% url 'contact' %}" method="post" id="formTwo">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="formTwo">
+
                 <div class="mil-field-frame mil-mb-20">
-                    <label>Check-in</label>
-                    <input id="check-in-2" type="text" class="datepicker-here" data-position="bottom left"
-                           placeholder="Select date" autocomplete="off" readonly="readonly">
+                    <label>{% trans "Ism" %}</label>
+                    <input type="text" name="first_name" placeholder="{% trans "Ismingizni kiriting" %}" required>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-calendar">
@@ -365,9 +380,8 @@
                     </svg>
                 </div>
                 <div class="mil-field-frame mil-mb-20">
-                    <label>Check-out</label>
-                    <input id="check-out-2" type="text" class="datepicker-here" data-position="bottom left"
-                           placeholder="Select date" autocomplete="off" readonly="readonly">
+                    <label>{% trans "Familiya" %}</label>
+                    <input type="text" name="last_name" placeholder="{% trans "Familyangizni kiriting" %}" required>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-calendar">
@@ -378,8 +392,8 @@
                     </svg>
                 </div>
                 <div class="mil-field-frame mil-mb-20">
-                    <label>Adults</label>
-                    <input type="text" placeholder="Enter quantity" value="1">
+                    <label>{% trans "Telefon raqam" %}</label>
+                    <input type="text" name="phone_number" placeholder="{% trans "901234567" %}" required>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-users">
@@ -390,18 +404,14 @@
                     </svg>
                 </div>
                 <button type="submit" class="mil-button mil-accent-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                         class="feather feather-search">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                    <span>Search</span>
+                    <span>{% trans "Yuborish" %}</span>
                 </button>
             </form>
         </div>
     </div>
+
     <!-- book popup end -->
+
 
     <div class="mil-progressbar"></div>
 

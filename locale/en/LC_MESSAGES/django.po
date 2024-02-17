@@ -86,7 +86,7 @@ msgid "Hammasini Ko'rish"
 msgstr "View All"
 
 msgid "Biz bilan bog'lanish"
-msgstr "CONTACT US"
+msgstr "Contact us"
 
 
 msgid "Savollaringiz bormi?"
@@ -238,6 +238,104 @@ msgstr "Follow the most popular news on our site"
 
 msgid "Biz sizga eng qiziqarli yangiliklarimizni o'qishni tavsiya etamiz"
 msgstr "We encourage you to read our most interesting news"
+
+
+
+msgid "Xonaning tavsifi"
+msgstr "Description of the room"
+
+msgid "Manzil"
+msgstr "Location"
+
+
+msgid "Asosiy xususiyatlar"
+msgstr "Key Features"
+
+msgid "Qulaylik"
+msgstr "Convenience"
+
+msgid "Hamma xizmatlar"
+msgstr "All Services"
+
+msgid "Xizmat tavsifi"
+msgstr "Service Description"
+
+msgid "Tez-tez so'raladigan savollar"
+msgstr "Frequently Asked Questions"
+
+msgid "Nashr"
+msgstr "Publication"
+
+msgid "Izohlar"
+msgstr "Notes"
+
+msgid "Fikr qoldirish"
+msgstr "Post a comment"
+
+msgid "Elektron pochta"
+msgstr "Email"
+
+
+msgid "Izoh"
+msgstr "Comment"
+
+msgid "Hammasi"
+msgstr "All"
+
+
+msgid "Qarshi shahri yaqinida joylashgan Astra mehmonxonasi hashamat va qulaylik namunasi bo'lgan 3 yulduzli taniqli muassasa sifatida joylashgan. Mintaqadagi eng hashamatli mehmonxonalardan biri sifatida Astra mehmonxonasi nafosat va qulaylik uyg'unligini izlayotgan aqlli sayohatchilarga xizmat qiladi.Mehmonlarning ajoyib tajribasini taqdim etish majburiyatimiz mehmonxonamizga kirganingizdanoq yaqqol namoyon bo'ladi. 24 soat xizmat ko'rsatadigan resepsiyon bilan bizning diqqatli xodimlarimiz sizning ehtiyojlaringizni kunning istalgan vaqtida qondirishni ta'minlaydi. Astra mehmonxonasi xonalarga beg'ubor xizmat ko'rsatish bilan faxrlanadi, bu sizning turar joyingiz eng qulaylik va dam olish bilan ajralib turishini ta'minlaydi.Mehmonlar bizning terasimizdagi sokin muhitda dam olishlari va mahalliy atmosferaga singib ketishlari uchun mukammal sharoit yaratishlari mumkin. Mehmonxona hududida mavjud bo'lgan bepul Wi-Fi bilan yaqinlaringiz bilan aloqada bo'ling yoki ish majburiyatlaringizni bajaring. Mashina bilan kelganlar uchun qulaylik va xotirjamlikni ta'minlovchi bepul shaxsiy avtoturargohlarimizdan ishonch hosil qiling."
+msgstr "Located near the city of Karshi, Hotel Astra is a renowned 3-star establishment that exemplifies luxury and comfort. As one of the most luxurious hotels in the region, Hotel Astra caters to discerning travelers seeking a blend of sophistication and comfort. Our commitment to providing an exceptional guest experience is evident from the moment you enter our hotel. With a 24-hour front desk, our attentive staff ensures that your needs are met at any time of the day. Hotel Astra prides itself on impeccable room service, ensuring your stay is as comfortable and relaxing as possible. Guests can relax in the tranquil atmosphere of our terrace and soak up the local atmosphere.Keep in touch with your loved ones or take care of your business with the free Wi-Fi available in the hotel area. For those who come by car, be sure of our free private parking, which provides comfort and peace of mind."
+
+
+msgid "Qarshi aeroportidan atigi 7 km uzoqlikda joylashgan Astra mehmonxonasi sayyohlar uchun qulaylik yaratadi. Bizning strategik joylashuvimiz sizga Qarshining jozibasi bilan tanishish imkonini beradi, shu bilan birga bir kunlik kashfiyotdan keyin qaytib kelish uchun sokin vohani taqdim etadi.Biznes yoki hordiq uchun tashrif buyurgan bo‘lsangiz ham, Astra mehmonxonasi Qarshi shahrining qoq markazida hashamatli dam olish maskanini taklif qilib, kutganingizdan oshib ketishni maqsad qilgan. Bizning muassasamizni belgilaydigan nafislik va qulaylikka sho'ng'ib, turar joyingizni unutilmas tajribaga aylantiring."
+msgstr "Just 7 km from Karshi Airport, Hotel Astra offers the convenience of travelers. Our strategic location allows you to explore the charms of Karshi while providing a quiet oasis to return to after a day of exploring. Whether you're visiting for business or pleasure Astra Hotel aims to exceed your expectations by offering a luxurious retreat in the heart of Karshi. Make your stay an unforgettable experience by immersing yourself in the elegance and comfort that define our establishment."
+
+
+msgid "Sharhlar"
+msgstr "Reviews"
+
+
+msgid "Mehmonlarimiz biz haqimizda nima deydi?"
+msgstr "What do our guests say about us?"
+
+
+msgid "Ularga quloq tuting"
+msgstr "Listen to them"
+
+
+msgid "Familiya"
+msgstr "Lastname"
+
+msgid "Familyangizni kiriting"
+msgstr "Enter your last name"
+
+
+
+
+
+
+
+msgid "Sahifa topilmadi yoki serverda ichki xatolik yuz berdi."
+msgstr "The page could not be found or an internal server error occurred."
+
+
+msgid "Kechirasiz, lekin siz qidirayotgan sahifa mavjud boʻlmasligi mumkin."
+msgstr "Sorry, but the page you are looking for may not be available."
+
+
+msgid "Asosiy sahifaga qaytish"
+msgstr "Back to main page"
+
+msgid "Bu yerda fikr yozing"
+msgstr "Write a comment here"
+
+
+
+
+
+
+
+
 
 
 

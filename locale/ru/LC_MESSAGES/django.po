@@ -90,7 +90,7 @@ msgid "Hammasini Ko'rish"
 msgstr "Увидеть все"
 
 msgid "Biz bilan bog'lanish"
-msgstr "СВЯЗАТЬСЯ С НАМИ"
+msgstr "Cвязаться с нами"
 
 
 msgid "Savollaringiz bormi?"
@@ -235,6 +235,86 @@ msgstr "Следите за самыми популярными новостям
 msgid "Biz sizga eng qiziqarli yangiliklarimizni o'qishni tavsiya etamiz"
 msgstr "Приглашаем вас прочитать наши самые интересные новости"
 
+
+
+msgid "Xonaning tavsifi"
+msgstr "Описание номера"
+
+msgid "Manzil"
+msgstr "Расположение"
+
+msgid "Asosiy xususiyatlar"
+msgstr "Ключевая особенность"
+
+msgid "Qulaylik"
+msgstr "Удобство"
+
+msgid "Hamma xizmatlar"
+msgstr "Все услуги"
+
+msgid "Xizmat tavsifi"
+msgstr "Описание услуг"
+
+msgid "Tez-tez so'raladigan savollar"
+msgstr "Часто задаваемые вопросы"
+
+msgid "Nashr"
+msgstr "Публикация"
+
+msgid "Izohlar"
+msgstr "Примечания"
+
+msgid "Fikr qoldirish"
+msgstr "Оставить комментарий"
+
+msgid "Elektron pochta"
+msgstr "Электронная почта"
+
+msgid "Izoh"
+msgstr "Объяснение"
+
+msgid "Hammasi"
+msgstr "Все"
+
+
+
+msgid "Qarshi shahri yaqinida joylashgan Astra mehmonxonasi hashamat va qulaylik namunasi bo'lgan 3 yulduzli taniqli muassasa sifatida joylashgan. Mintaqadagi eng hashamatli mehmonxonalardan biri sifatida Astra mehmonxonasi nafosat va qulaylik uyg'unligini izlayotgan aqlli sayohatchilarga xizmat qiladi.Mehmonlarning ajoyib tajribasini taqdim etish majburiyatimiz mehmonxonamizga kirganingizdanoq yaqqol namoyon bo'ladi. 24 soat xizmat ko'rsatadigan resepsiyon bilan bizning diqqatli xodimlarimiz sizning ehtiyojlaringizni kunning istalgan vaqtida qondirishni ta'minlaydi. Astra mehmonxonasi xonalarga beg'ubor xizmat ko'rsatish bilan faxrlanadi, bu sizning turar joyingiz eng qulaylik va dam olish bilan ajralib turishini ta'minlaydi.Mehmonlar bizning terasimizdagi sokin muhitda dam olishlari va mahalliy atmosferaga singib ketishlari uchun mukammal sharoit yaratishlari mumkin. Mehmonxona hududida mavjud bo'lgan bepul Wi-Fi bilan yaqinlaringiz bilan aloqada bo'ling yoki ish majburiyatlaringizni bajaring. Mashina bilan kelganlar uchun qulaylik va xotirjamlikni ta'minlovchi bepul shaxsiy avtoturargohlarimizdan ishonch hosil qiling."
+msgstr "Отель Астра, расположенный недалеко от города Карши, представляет собой известный 3-звездочный отель, олицетворяющий роскошь и комфорт. Являясь одним из самых роскошных отелей в регионе, отель «Астра» обслуживает взыскательных путешественников, ищущих сочетание изысканности и комфорта. Наши обязательства Обеспечить исключительные впечатления для гостей становится очевидным с того момента, как вы входите в наш отель.На круглосуточной стойке регистрации наш внимательный персонал позаботится о том, чтобы ваши потребности были удовлетворены в любое время суток.Отель Astra гордится безупречным обслуживанием номеров, гарантируя Ваше пребывание будет максимально комфортным и расслабляющим.Гости могут расслабиться в спокойной атмосфере нашей террасы и погрузиться в местную атмосферу.Поддерживайте связь со своими близкими или занимайтесь своими делами с помощью бесплатного Wi-Fi, доступного в отеле. область. Для тех, кто приезжает на машине, будьте уверены в нашей бесплатной частной парковке, которая обеспечивает комфорт и спокойствие."
+
+
+msgid "Qarshi aeroportidan atigi 7 km uzoqlikda joylashgan Astra mehmonxonasi sayyohlar uchun qulaylik yaratadi. Bizning strategik joylashuvimiz sizga Qarshining jozibasi bilan tanishish imkonini beradi, shu bilan birga bir kunlik kashfiyotdan keyin qaytib kelish uchun sokin vohani taqdim etadi.Biznes yoki hordiq uchun tashrif buyurgan bo‘lsangiz ham, Astra mehmonxonasi Qarshi shahrining qoq markazida hashamatli dam olish maskanini taklif qilib, kutganingizdan oshib ketishni maqsad qilgan. Bizning muassasamizni belgilaydigan nafislik va qulaylikka sho'ng'ib, turar joyingizni unutilmas tajribaga aylantiring."
+msgstr "Отель Astra, расположенный всего в 7 км от аэропорта Карши, предлагает удобство путешественникам. Наше стратегическое расположение позволяет вам исследовать прелести Карши, обеспечивая при этом тихий оазис, куда можно вернуться после целого дня прогулок. Приезжаете ли вы по делам или для удовольствия. Отель Astra стремится превзойти ваши ожидания, предлагая роскошный отдых в самом сердце Карши. Сделайте ваше пребывание незабываемым, погрузившись в элегантность и комфорт, которые характеризуют наше заведение."
+
+
+msgid "Sharhlar"
+msgstr "Комментарии"
+
+
+msgid "Mehmonlarimiz biz haqimizda nima deydi?"
+msgstr "Что говорят о нас наши гости?"
+
+msgid "Ularga quloq tuting"
+msgstr "Слушай их"
+
+msgid "Familiya"
+msgstr "Фамилия"
+
+msgid "Familyangizni kiriting"
+msgstr "Введите свою фамилию"
+
+
+msgid "Sahifa topilmadi yoki serverda ichki xatolik yuz berdi."
+msgstr "Страница не найдена или произошла внутренняя ошибка сервера."
+
+
+msgid "Kechirasiz, lekin siz qidirayotgan sahifa mavjud boʻlmasligi mumkin."
+msgstr "Извините, но страница, которую вы ищете, может быть недоступна."
+
+msgid "Asosiy sahifaga qaytish"
+msgstr "Вернуться на главную страницу"
+
+msgid "Bu yerda fikr yozing"
+msgstr "Напишите комментарий здесь"
 
 
 

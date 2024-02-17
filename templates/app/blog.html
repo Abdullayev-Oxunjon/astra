@@ -176,7 +176,7 @@
                 {% for blog in popular_blogs %}
                     <div class="col-md-6 col-xl-6">
 
-                        <a href="{% url 'publication' %}" class="mil-card mil-mb-40-adapt mil-fade-up">
+                        <a href="{% url 'publication' blog.id %}" class="mil-card mil-mb-40-adapt mil-fade-up">
                             <div class="swiper-container mil-card-slider">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
@@ -261,7 +261,7 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="mil-desctop-right mil-fade-up">
-                        <a href="blog.html" class="mil-button">
+                        <a href="{% url 'blog' %}" class="mil-button">
                             <span>{% trans "Hammasini Ko'rish" %}</span>
                         </a>
                     </div>
@@ -283,7 +283,7 @@
                 {% for blog in latest_blogs %}
                     <div class="col-xl-4">
 
-                        <a href="{% url 'publication' %}" class="mil-card mil-mb-40-adapt mil-fade-up">
+                        <a href="{% url 'publication' blog.id %}" class="mil-card mil-mb-40-adapt mil-fade-up">
                             <div class="swiper-container mil-card-slider">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
@@ -369,7 +369,7 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="mil-desctop-right mil-fade-up">
-                        <a href="blog.html" class="mil-button">
+                        <a href="{% url 'blog' %}" class="mil-button">
                             <span>{% trans "Hammasini Ko'rish" %}</span>
                         </a>
                     </div>
@@ -384,9 +384,15 @@
         <div class="container">
             <div class="mil-text-center">
                 <div class="mil-suptitle mil-mb-20 mil-fade-up">{% trans "Harakatga chaqirish" %}</div>
-                <h2 class="mil-h2-lg mil-mb-40 mil-fade-up" style="letter-spacing: 0.1px">{% trans "Bizning xabarnomamizga obuna bo'ling" %}</h2>
-                <form class="mil-subscribe-form mil-fade-up" style="margin: 0 auto" action="{% url 'blog' %}" method="post">
+                <h2 class="mil-h2-lg mil-mb-40 mil-fade-up"
+                    style="letter-spacing: 0.1px">{% trans "Bizning xabarnomamizga obuna bo'ling" %}</h2>
+
+
+                <form class="mil-subscribe-form mil-fade-up" style="margin: 0 auto" action="{% url 'blog' %}"
+                      method="post" id="formOne">
                     {% csrf_token %}
+                    <input type="hidden" name="form_type" value="formOne">
+
                     <input type="email" name="email" placeholder="{% trans 'Elektron pochtangizni kiriting' %}">
                     <button type="submit">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -397,6 +403,8 @@
                         </svg>
                     </button>
                 </form>
+
+
             </div>
         </div>
     </div>
@@ -442,7 +450,8 @@
                     {% for publication in publications %}
                         <div class="swiper-slide">
 
-                            <a href="{% url 'publication' %}" class="mil-card mil-mb-40-adapt mil-fade-up">
+                            <a href="{% url 'publication' publication.id %}"
+                               class="mil-card mil-mb-40-adapt mil-fade-up">
                                 <div class="swiper-container mil-card-slider">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
@@ -532,7 +541,7 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="mil-desctop-right mil-fade-up">
-                        <a href="{% url 'blog'  %}" class="mil-button">
+                        <a href="{% url 'blog' %}" class="mil-button">
                             <span>{% trans "Hammasini Ko'rish" %}</span>
                         </a>
                     </div>
@@ -598,7 +607,7 @@
     <div class="mil-book-popup-frame">
         <div class="mil-book-popup">
             <div class="mil-popup-head mil-mb-40">
-                <h3 class="mil-h3-lg">Search</h3>
+                <h3 class="mil-h3-lg">{% trans "Yuborish" %}</h3>
                 <div class="mil-close-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -608,11 +617,14 @@
                     </svg>
                 </div>
             </div>
-            <form>
+            <form action="{% url "blog" %}" method="post" id="formTwo">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="formTwo">
+
                 <div class="mil-field-frame mil-mb-20">
-                    <label>Check-in</label>
-                    <input id="check-in-2" type="text" class="datepicker-here" data-position="bottom left"
-                           placeholder="Select date" autocomplete="off" readonly="readonly">
+                    <label>{% trans "Ism" %}</label>
+                    <input type="text" name="first_name"
+                           placeholder="{% trans "Ismingizni kiriting" %}" id="" required>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-calendar">
@@ -623,9 +635,9 @@
                     </svg>
                 </div>
                 <div class="mil-field-frame mil-mb-20">
-                    <label>Check-out</label>
-                    <input id="check-out-2" type="text" class="datepicker-here" data-position="bottom left"
-                           placeholder="Select date" autocomplete="off" readonly="readonly">
+                    <label>{% trans "Familiya" %}</label>
+                    <input type="text" name="last_name"
+                           placeholder="{% trans "Familyangizni kiriting" %}" id="" required>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-calendar">
@@ -636,8 +648,9 @@
                     </svg>
                 </div>
                 <div class="mil-field-frame mil-mb-20">
-                    <label>Adults</label>
-                    <input type="text" placeholder="Enter quantity" value="1">
+                    <label>{% trans "Telefon raqam" %}</label>
+                    <input type="text" name="phone_number" placeholder="{% trans "901234567" %}"
+                           required>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-users">
@@ -648,18 +661,13 @@
                     </svg>
                 </div>
                 <button type="submit" class="mil-button mil-accent-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                         class="feather feather-search">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                    <span>Search</span>
+                    <span>{% trans "Yuborish" %}</span>
                 </button>
             </form>
         </div>
     </div>
     <!-- book popup end -->
+
 
     <div class="mil-progressbar"></div>
 
