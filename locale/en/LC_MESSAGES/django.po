@@ -330,7 +330,8 @@ msgid "Bu yerda fikr yozing"
 msgstr "Write a comment here"
 
 
-
+msgid "Ma'lumotlarni kiritishda xatolik sodir bo'ldi.Iltimos qayta kiriting"
+msgstr "An error occurred while entering data. Please re-enter"
 
 
 

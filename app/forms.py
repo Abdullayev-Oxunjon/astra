@@ -1,6 +1,9 @@
 from django import forms
 
-from app.models import Subscribe, Contact, BlogComment, Booking
+from app.models.blog import BlogComment
+from app.models.other import Contact
+from app.models.rooms import Booking
+from app.models.services import Subscribe
 
 
 class SubscribeForm(forms.ModelForm):

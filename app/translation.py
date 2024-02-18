@@ -1,6 +1,9 @@
 from modeltranslation.translator import TranslationOptions, register
 
-from .models import Features, Rooms, Blog, Service, Visitors, RoomFeatures, RoomAmenity, Faq, RoomCategory, Reviews
+from app.models.blog import Blog
+from app.models.other import Features
+from app.models.rooms import Rooms, RoomFeatures, RoomAmenity, RoomCategory
+from app.models.services import Service, Visitors, Faq, Reviews
 
 
 @register(Features)

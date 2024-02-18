@@ -1,7 +1,8 @@
 from django.shortcuts import redirect, render, get_object_or_404
 
 from app.forms import SubscribeForm, BookingModelForm, BlogCommentForm
-from app.models import MainSocialNetwork, Blog, BlogComment
+from app.models.blog import Blog, BlogComment
+from app.models.other import MainSocialNetwork
 
 
 def blog_view(request):

@@ -316,7 +316,8 @@ msgstr "Вернуться на главную страницу"
 msgid "Bu yerda fikr yozing"
 msgstr "Напишите комментарий здесь"
 
-
+msgid "Ma'lumotlarni kiritishda xatolik sodir bo'ldi.Iltimos qayta kiriting"
+msgstr "Произошла ошибка при вводе данных. Пожалуйста, введите заново"
 
 
 

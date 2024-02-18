@@ -1,8 +1,10 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
 
-from app.models import Features, Rooms, MainSocialNetwork, RoomImage, Blog, Service, Visitors, Subscribe, Contact, \
-    RoomFeatures, RoomAmenity, Faq, RoomCategory, Reviews, Booking, BlogComment
+from app.models.blog import Blog, BlogComment
+from app.models.other import Features, MainSocialNetwork, Contact
+from app.models.rooms import Rooms, RoomFeatures, RoomAmenity, RoomCategory, RoomImage, Booking
+from app.models.services import Service, Visitors, Faq, Reviews, Subscribe
 
 
 class CustomTranslationAdmin(TranslationAdmin):
@@ -29,7 +31,7 @@ class RoomsAdmin(CustomTranslationAdmin):
 
 @admin.register(Blog)
 class BlogAdmin(CustomTranslationAdmin):
-    list_display = ("title", "description", "short_description","created_at", "updated_at")
+    list_display = ("title", "description", "short_description", "created_at", "updated_at")
 
 
 @admin.register(Service)
@@ -64,7 +66,7 @@ class RoomCategoryAdmin(CustomTranslationAdmin):
 
 @admin.register(Reviews)
 class ReviewsAdmin(CustomTranslationAdmin):
-    list_display = ( "degree", "description")
+    list_display = ("degree", "description")
 
 
 admin.site.register([

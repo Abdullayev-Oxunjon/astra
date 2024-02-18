@@ -2,7 +2,8 @@ from django.core.paginator import Paginator
 from django.shortcuts import redirect, render
 
 from app.forms import BookingModelForm
-from app.models import MainSocialNetwork, Rooms, RoomCategory
+from app.models.other import MainSocialNetwork
+from app.models.rooms import Rooms, RoomCategory
 
 
 def rooms_view(request):
@@ -14,7 +15,7 @@ def rooms_view(request):
 
     form = BookingModelForm()
     social_networks = MainSocialNetwork.objects.all()
-    rooms = Rooms.objects.all()
+    rooms = Rooms.objects.all().order_by('-id')
     paginator = Paginator(rooms, per_page=6)
     page_number = request.GET.get('page', 1)
     rooms_list = paginator.get_page(page_number)

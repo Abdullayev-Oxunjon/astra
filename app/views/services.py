@@ -1,7 +1,9 @@
 from django.shortcuts import redirect, render
 
 from app.forms import BookingModelForm
-from app.models import MainSocialNetwork, Service, Rooms, Faq
+from app.models.other import MainSocialNetwork
+from app.models.rooms import Rooms
+from app.models.services import Service, Faq
 
 
 def services_view(request):

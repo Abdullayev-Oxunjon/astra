@@ -1,7 +1,12 @@
+from django.contrib import messages
 from django.shortcuts import redirect, render
+from django.utils.translation import gettext_lazy as _
 
 from app.forms import BookingModelForm, ContactForm
-from app.models import Rooms, MainSocialNetwork, Features, Blog, Service, Reviews, Visitors
+from app.models.blog import Blog
+from app.models.other import MainSocialNetwork, Features
+from app.models.rooms import Rooms
+from app.models.services import Service, Reviews, Visitors
 
 
 def index_view(request):
@@ -67,6 +72,11 @@ def contact_view(request):
         if form.is_valid():
             form.save()
             return redirect('index')
+
+        else:
+            message = _("Ma'lumotlarni kiritishda xatolik sodir bo'ldi.Iltimos qayta kiriting")
+            messages.add_message(request, messages.ERROR, message)
+            return redirect('contact')
 
     # Default to ContactForm if it's a GET request or form_type is not specified
     form = ContactForm()
