@@ -2,7 +2,7 @@ from modeltranslation.translator import TranslationOptions, register
 
 from app.models.blog import Blog
 from app.models.other import Features
-from app.models.rooms import Rooms, RoomFeatures, RoomAmenity, RoomCategory
+from app.models.rooms import Rooms,  RoomAmenity, RoomCategory
 from app.models.services import Service, Visitors, Faq, Reviews
 
 
@@ -31,14 +31,9 @@ class VisitorsTranslationOptions(TranslationOptions):
     fields = ('visitor_title',)
 
 
-@register(RoomFeatures)
-class RoomFeaturesTranslationOptions(TranslationOptions):
-    fields = ('title',)
 
 
-@register(RoomAmenity)
-class RoomAmenityTranslationOptions(TranslationOptions):
-    fields = ('title', 'description')
+
 
 
 @register(Faq)

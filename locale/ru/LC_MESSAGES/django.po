@@ -61,7 +61,7 @@ msgid "Qashqadaryo viloyati, Qarshi shahri, 3-mitti-tumani"
 msgstr "Кашкадарьинская область, город Карши, 3-й Митти-район"
 
 
-msgid "Yangi joylarni kash eting"
+msgid "Yangi joylarni kashf eting"
 msgstr "Исследуй новые места"
 
 

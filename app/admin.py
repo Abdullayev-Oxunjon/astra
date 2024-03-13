@@ -3,7 +3,7 @@ from modeltranslation.admin import TranslationAdmin
 
 from app.models.blog import Blog, BlogComment
 from app.models.other import Features, MainSocialNetwork, Contact
-from app.models.rooms import Rooms, RoomFeatures, RoomAmenity, RoomCategory, RoomImage, Booking
+from app.models.rooms import Rooms,  RoomAmenity, RoomCategory, RoomImage, Booking
 from app.models.services import Service, Visitors, Faq, Reviews, Subscribe
 
 
@@ -44,14 +44,9 @@ class VisitorsAdmin(CustomTranslationAdmin):
     list_display = ("visitor_title",)
 
 
-@admin.register(RoomFeatures)
-class RoomFeaturesAdmin(CustomTranslationAdmin):
-    list_display = ("title",)
 
 
-@admin.register(RoomAmenity)
-class RoomAmenityAdmin(CustomTranslationAdmin):
-    list_display = ("title", "description")
+
 
 
 @admin.register(Faq)
@@ -75,5 +70,6 @@ admin.site.register([
     Subscribe,
     Contact,
     Booking,
-    BlogComment
+    BlogComment,
+    RoomAmenity
 ])

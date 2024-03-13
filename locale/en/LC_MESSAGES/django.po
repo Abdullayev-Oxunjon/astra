@@ -55,7 +55,7 @@ msgstr "Uzbekistan"
 msgid "Qashqadaryo viloyati, Qarshi shahri, 3-mitti-tumani"
 msgstr "Kashkadarya region, Karshi city, 3 mitti-district"
 
-msgid "Yangi joylarni kash eting"
+msgid "Yangi joylarni kashf eting"
 msgstr "Explore New Places"
 
 

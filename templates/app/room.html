@@ -206,30 +206,7 @@
                     </div>
                     <!-- room slider end -->
 
-                    <!-- features -->
-                    {% if  room.features != none %}
 
-                        <div class="row mil-mb-60-adapt">
-                            <div class="col-12">
-                                <h3 class="mil-fade-up mil-mb-40">{% trans "Asosiy xususiyatlar" %}</h3>
-                            </div>
-                            {% for i in room.features.all %}
-                                <div class="col-xl-4">
-
-                                    <div class="mil-iconbox mil-iconbox-sm mil-mb-40-adapt mil-fade-up">
-                                        <div class="mil-bg-icon"></div>
-                                        <div class="mil-icon mil-icon-fix">
-                                            <img style="width: 24px" src="{{ i.image.url }}" alt="">
-                                        </div>
-                                        <h5>{{ i.title }}</h5>
-                                    </div>
-
-                                </div>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-
-                    <!-- features -->
 
                     <!-- description -->
                     <div class="row">
@@ -245,39 +222,30 @@
                     <!-- description end -->
 
                     <!-- amenity -->
-                    <div class="row mil-mb-60-adapt">
-                        <div class="col-12">
-                            <h3 class="mil-fade-up mil-mb-40">{% trans "Qulaylik" %}</h3>
-                        </div>
-                        {% for i in room.amenities.all %}
-                            <div class="col-xl-6">
 
-                                <div class="mil-iconbox mil-mb-40-adapt mil-fade-up">
-                                    <div class="mil-bg-icon"></div>
-                                    <div class="mil-icon mil-icon-fix">
-                                        <img style="width: 30px;" src="{{ i.image.url }}" alt="">
-                                    </div>
-                                    <h3 class="mil-mb-20">{{ i.title }}</h3>
-                                    <p>{{ i.description }}</p>
-                                </div>
-
+                        <div class="row mil-mb-60-adapt">
+                            <div class="col-12">
+                                <h3 class="mil-fade-up mil-mb-40">{% trans "Qulaylik" %}</h3>
                             </div>
-                        {% endfor %}
-                    </div>
+                            {% for i in room.amenities.all %}
+                                <div class="col-xl-6">
+
+                                    <div class="mil-iconbox mil-mb-40-adapt mil-fade-up">
+                                        <div class="mil-bg-icon"></div>
+                                        <div class="mil-icon mil-icon-fix">
+                                            <img style="width: 30px;" src="{{ i.amenity.image.url }}" alt="">
+                                        </div>
+                                        <h3 class="mil-mb-20">{{ i.amenity.title }}</h3>
+                                        <p>{{ i.amenity.description }}</p>
+                                    </div>
+
+                                </div>
+                            {% endfor %}
+                        </div>
 
                     <!-- amenity end -->
 
-                    <!-- map -->
-                    <div>
-                        <h3 class="mil-fade-up mil-mb-40">{% trans "Manzil" %}</h3>
 
-                        <div class="mil-map-frame mil-fade-up mil-mb-100">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6393.16599479736!2d-2.430872248702666!3d36.81379446199894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7a9db1a1de493f%3A0xc6d411d11ab69d33!2sParque%20de%20Bici!5e0!3m2!1suk!2suk!4v1701096541420!5m2!1suk!2suk"
-                                    style="border:0;" allowfullscreen="" loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                    </div>
-                    <!-- map end -->
 
                 </div>
                 <!-- sidebar -->
@@ -600,7 +568,7 @@
 
                             </div>
                             <div class="col-md-4 col-lg-3 mil-mb-40">
-                                <a href="https://growyourbusiness.uz/" target="_blank">
+                                <a href="http://webify.uz/" target="_blank">
                                     <img style="width: 120px" src="{% static 'img/webifylogo.png' %}" alt="">
                                 </a>
                             </div>

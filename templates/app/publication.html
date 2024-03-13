@@ -183,14 +183,17 @@
 
                     <div class="mil-divider mil-mb-100"></div>
 
-                    <h2 class="mil-row-title mil-fade-up mil-mb-100">{% trans "Izohlar" %}
+                {% if comments %}
+                	 <h2 class="mil-row-title mil-fade-up mil-mb-100">{% trans "Izohlar" %}
                         {% if comments_count != 0 %}
                             <span class="mil-badge">{{ comments_count }}</span>
                         {% endif %}
 
                     </h2>
+                {% endif %}
 
-                    <ul class="mil-comments mil-mb-100">
+                   {% if comments %}
+                   	                    <ul class="mil-comments mil-mb-100">
                         {% for comment in comments %}
                             <li class="mil-comment mil-mb-40">
                                 <div class="mil-comment-head mil-fade-up">
@@ -217,6 +220,8 @@
                             </li>
                         {% endfor %}
                     </ul>
+
+                   {% endif %}
                     <div class="mil-divider mil-mb-40"></div>
                     <a href="#." class="mil-button mil-accent-1 mil-reply">
                         <span>{% trans "Fikr qoldirish" %}</span>
@@ -386,7 +391,7 @@
 
                             </div>
                             <div class="col-md-4 col-lg-3 mil-mb-40">
-                                <a href="https://growyourbusiness.uz/" target="_blank">
+                                <a href="http://webify.uz/" target="_blank">
                                     <img style="width: 120px" src="{% static 'img/webifylogo.png' %}" alt="">
                                 </a>
                             </div>
